@@ -1,0 +1,53 @@
+extends Control
+
+
+func _input(event: InputEvent) -> void:
+	if get_parent() is CanvasLayer:
+		if event.is_action_pressed("pause") and not get_tree().paused:
+			get_tree().paused = true
+			visible = true
+		elif event.is_action_pressed("pause"):
+			_on_back_pressed()
+
+
+func _process(_delta: float) -> void:
+	if Globals.current_colours != Globals.colours or Globals.current_settings != Globals.settings:
+		$SaveSettings.visible = true
+	else:
+		$SaveSettings.visible = false
+
+
+func _on_back_pressed() -> void:
+	get_tree().paused = false
+	
+	if Globals.current_colours != Globals.colours or Globals.current_settings != Globals.settings:
+		Globals.settings = Globals.current_settings.duplicate_deep()
+		Globals.colours = Globals.current_colours.duplicate_deep()
+		
+		if Globals.settings[Enums.Settings.FULLSCREEN]:
+			DisplayServer.window_set_mode(DisplayServer.WINDOW_MODE_FULLSCREEN)
+		else:
+			DisplayServer.window_set_mode(DisplayServer.WINDOW_MODE_MAXIMIZED)
+		
+		for bus in Enums.Audio_Buses.values():
+			print(bus)
+			var db = linear_to_db(Globals.settings[Enums.Settings.AUDIO][bus])
+			AudioServer.set_bus_volume_db(bus, db)
+	
+	self.visible = false
+	if self.get_parent() is Control:
+		self.get_parent().get_child(0).visible = true
+
+
+func _on_colours_pressed() -> void:
+	$OptionButtons.visible = false
+	$GraphicsOptions.visible = true
+
+
+func _on_audio_pressed() -> void:
+	$OptionButtons.visible = false
+	$AudioOptions.visible = true
+
+
+func _on_save_settings_pressed() -> void:
+	SaveLoad._save_settings()

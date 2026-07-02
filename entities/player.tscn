@@ -1,0 +1,70 @@
+[gd_scene format=3 uid="uid://dhpnpplxsy78"]
+
+[ext_resource type="Script" uid="uid://2vci8aqpotbr" path="res://entities/player.gd" id="1_g2els"]
+[ext_resource type="Script" uid="uid://c5rn543vno02m" path="res://entities/canvas_layer.gd" id="2_g2els"]
+[ext_resource type="PackedScene" uid="uid://ccx1a8babckn6" path="res://menu/options.tscn" id="3_e4p34"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_g2els"]
+radius = 15.0
+
+[sub_resource type="GDScript" id="GDScript_3vyb7"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_qhqgy"]
+corner_radius_top_left = 7
+corner_radius_top_right = 7
+corner_radius_bottom_right = 7
+corner_radius_bottom_left = 7
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_dqkch"]
+bg_color = Color(0, 0, 1, 1)
+corner_radius_top_left = 7
+corner_radius_top_right = 7
+corner_radius_bottom_right = 7
+corner_radius_bottom_left = 7
+
+[node name="player" type="CharacterBody2D" unique_id=901184842 node_paths=PackedStringArray("gun_timer")]
+process_mode = 3
+collision_mask = 11
+script = ExtResource("1_g2els")
+gun_timer = NodePath("GunTimer")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=325000494]
+shape = SubResource("CircleShape2D_g2els")
+script = SubResource("GDScript_3vyb7")
+
+[node name="CanvasLayer" type="CanvasLayer" parent="." unique_id=2137391029 node_paths=PackedStringArray("gun_timer", "progress_bar")]
+script = ExtResource("2_g2els")
+gun_timer = NodePath("../GunTimer")
+progress_bar = NodePath("ReloadBar")
+
+[node name="Options" parent="CanvasLayer" unique_id=1216305481 instance=ExtResource("3_e4p34")]
+process_mode = 3
+visible = false
+
+[node name="ReloadBar" type="ProgressBar" parent="CanvasLayer" unique_id=256477706]
+anchors_preset = -1
+anchor_left = 0.95600003
+anchor_top = 0.855
+anchor_right = 0.989
+anchor_bottom = 0.9850001
+offset_left = -0.31201172
+offset_top = -0.040039063
+offset_bottom = -0.2800293
+grow_horizontal = 0
+grow_vertical = 0
+theme_override_styles/background = SubResource("StyleBoxFlat_qhqgy")
+theme_override_styles/fill = SubResource("StyleBoxFlat_dqkch")
+max_value = 1.0
+value = 0.39
+fill_mode = 3
+show_percentage = false
+
+[node name="Camera2D" type="Camera2D" parent="." unique_id=581789559]
+scale = Vector2(2796.8503, -27.205406)
+zoom = Vector2(0.64, 0.64)
+process_callback = 0
+position_smoothing_enabled = true
+
+[node name="GunTimer" type="Timer" parent="." unique_id=797894155]
+process_mode = 1
+one_shot = true

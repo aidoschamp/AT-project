@@ -1,0 +1,158 @@
+[gd_scene format=3 uid="uid://bxh0y0ikl2vyy"]
+
+[ext_resource type="Script" uid="uid://d2x17cdsi7ll6" path="res://menu/colour_options.gd" id="1_cuswo"]
+[ext_resource type="Script" uid="uid://c4wmkygwrta63" path="res://menu/color_picker_button.gd" id="2_q0qbc"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_sx3uy"]
+bg_color = Color(1, 1, 1, 1)
+corner_radius_top_left = 16
+corner_radius_top_right = 16
+corner_radius_bottom_right = 16
+corner_radius_bottom_left = 16
+
+[node name="ColourOptions" type="Control" unique_id=1216305481]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_cuswo")
+
+[node name="Options" type="VBoxContainer" parent="." unique_id=1067138795]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -195.0
+offset_top = -37.0
+offset_right = 195.0
+offset_bottom = 203.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/separation = 20
+
+[node name="GridContainer" type="GridContainer" parent="Options" unique_id=1092026462]
+layout_mode = 2
+size_flags_vertical = 3
+size_flags_stretch_ratio = 2.3
+columns = 3
+
+[node name="ColorPickerButton" type="ColorPickerButton" parent="Options/GridContainer" unique_id=1262120307]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+text = "Dot"
+color = Color(1, 1, 1, 1)
+edit_alpha = false
+edit_intensity = false
+script = ExtResource("2_q0qbc")
+
+[node name="ColorPickerButton5" type="ColorPickerButton" parent="Options/GridContainer" unique_id=1642071737]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+text = "Dot"
+color = Color(1, 1, 1, 1)
+edit_alpha = false
+edit_intensity = false
+script = ExtResource("2_q0qbc")
+colour_item = 4
+
+[node name="ColorPickerButton2" type="ColorPickerButton" parent="Options/GridContainer" unique_id=1493866208]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+text = "Dot"
+color = Color(1, 1, 1, 1)
+edit_alpha = false
+edit_intensity = false
+script = ExtResource("2_q0qbc")
+colour_item = 1
+
+[node name="ColorPickerButton3" type="ColorPickerButton" parent="Options/GridContainer" unique_id=895568080]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+text = "Dot"
+color = Color(1, 1, 1, 1)
+edit_alpha = false
+edit_intensity = false
+script = ExtResource("2_q0qbc")
+colour_item = 2
+
+[node name="ColorPickerButton4" type="ColorPickerButton" parent="Options/GridContainer" unique_id=1902462195]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+text = "Dot"
+color = Color(1, 1, 1, 1)
+edit_alpha = false
+edit_intensity = false
+script = ExtResource("2_q0qbc")
+colour_item = 3
+
+[node name="ColorPickerButton6" type="ColorPickerButton" parent="Options/GridContainer" unique_id=1279263942]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+text = "Dot"
+color = Color(1, 1, 1, 1)
+edit_alpha = false
+edit_intensity = false
+script = ExtResource("2_q0qbc")
+colour_item = 5
+
+[node name="ColorPickerButton7" type="ColorPickerButton" parent="Options/GridContainer" unique_id=1987294277]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+text = "Dot"
+color = Color(1, 1, 1, 1)
+edit_alpha = false
+edit_intensity = false
+script = ExtResource("2_q0qbc")
+colour_item = 6
+
+[node name="ColorPickerButton8" type="ColorPickerButton" parent="Options/GridContainer" unique_id=462364871]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+text = "Dot"
+color = Color(1, 1, 1, 1)
+edit_alpha = false
+edit_intensity = false
+script = ExtResource("2_q0qbc")
+colour_item = 7
+
+[node name="ColorPickerButton9" type="ColorPickerButton" parent="Options/GridContainer" unique_id=1813937185]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+text = "Dot"
+color = Color(1, 1, 1, 1)
+edit_alpha = false
+edit_intensity = false
+script = ExtResource("2_q0qbc")
+colour_item = 8
+
+[node name="Back" type="Button" parent="Options" unique_id=849849256]
+layout_mode = 2
+size_flags_vertical = 3
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_font_sizes/font_size = 30
+theme_override_styles/normal = SubResource("StyleBoxFlat_sx3uy")
+text = "Back"
+
+[connection signal="color_changed" from="Options/GridContainer/ColorPickerButton" to="Options/GridContainer/ColorPickerButton" method="_on_color_changed"]
+[connection signal="color_changed" from="Options/GridContainer/ColorPickerButton5" to="Options/GridContainer/ColorPickerButton5" method="_on_color_changed"]
+[connection signal="color_changed" from="Options/GridContainer/ColorPickerButton2" to="Options/GridContainer/ColorPickerButton2" method="_on_color_changed"]
+[connection signal="color_changed" from="Options/GridContainer/ColorPickerButton3" to="Options/GridContainer/ColorPickerButton3" method="_on_color_changed"]
+[connection signal="color_changed" from="Options/GridContainer/ColorPickerButton4" to="Options/GridContainer/ColorPickerButton4" method="_on_color_changed"]
+[connection signal="color_changed" from="Options/GridContainer/ColorPickerButton6" to="Options/GridContainer/ColorPickerButton6" method="_on_color_changed"]
+[connection signal="color_changed" from="Options/GridContainer/ColorPickerButton7" to="Options/GridContainer/ColorPickerButton7" method="_on_color_changed"]
+[connection signal="color_changed" from="Options/GridContainer/ColorPickerButton8" to="Options/GridContainer/ColorPickerButton8" method="_on_color_changed"]
+[connection signal="color_changed" from="Options/GridContainer/ColorPickerButton9" to="Options/GridContainer/ColorPickerButton9" method="_on_color_changed"]
+[connection signal="pressed" from="Options/Back" to="." method="_on_back_pressed"]

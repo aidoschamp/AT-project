@@ -1,0 +1,11 @@
+[gd_scene format=3 uid="uid://jcm4j64ndwsv"]
+
+[ext_resource type="Script" uid="uid://dl8fginshb00e" path="res://entities/teleport_enemy.gd" id="1_yto54"]
+
+[node name="TeleportEnemy" type="Area2D" unique_id=279629428 node_paths=PackedStringArray("enemy", "location")]
+collision_layer = 32
+script = ExtResource("1_yto54")
+enemy = NodePath("")
+location = NodePath("")
+
+[connection signal="body_entered" from="." to="." method="_on_body_entered"]

@@ -1,0 +1,82 @@
+[gd_scene format=3 uid="uid://d1bdgceh3qu8h"]
+
+[ext_resource type="Texture2D" uid="uid://r5sldiapnpri" path="res://assets/sprites/spritemap.png" id="1_sevxf"]
+[ext_resource type="Texture2D" uid="uid://bqpqreeevt8yj" path="res://assets/sprites/navigation layer.png" id="2_0cp0j"]
+[ext_resource type="PackedScene" uid="uid://ly25mcab1jaw" path="res://entities/enemy.tscn" id="3_kg1us"]
+[ext_resource type="PackedScene" uid="uid://dhpnpplxsy78" path="res://entities/player.tscn" id="4_s18e2"]
+
+[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_pkyk8"]
+texture = ExtResource("1_sevxf")
+0:0/0 = 0
+0:0/0/physics_layer_0/polygon_0/points = PackedVector2Array(-8, -8, 8, -8, 8, 8, -8, 8)
+
+[sub_resource type="TileSet" id="TileSet_y1s0d"]
+physics_layer_0/collision_layer = 2
+physics_layer_0/collision_mask = 15
+sources/6 = SubResource("TileSetAtlasSource_pkyk8")
+
+[sub_resource type="NavigationPolygon" id="NavigationPolygon_klq6b"]
+vertices = PackedVector2Array(8, 8, -8, 8, -8, -8, 8, -8)
+polygons = Array[PackedInt32Array]([PackedInt32Array(0, 1, 2, 3)])
+outlines = Array[PackedVector2Array]([PackedVector2Array(-8, -8, 8, -8, 8, 8, -8, 8)])
+agent_radius = 0.0
+
+[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_o5kxv"]
+texture = ExtResource("2_0cp0j")
+0:0/0 = 0
+0:0/0/navigation_layer_0/polygon = SubResource("NavigationPolygon_klq6b")
+
+[sub_resource type="TileSet" id="TileSet_l0cd7"]
+navigation_layer_0/layers = 1
+sources/1 = SubResource("TileSetAtlasSource_o5kxv")
+
+[node name="LevelBoilerplate" type="Node2D" unique_id=1287166355]
+
+[node name="TileMaps" type="Node" parent="." unique_id=2027340437]
+
+[node name="TileMapLayer" type="TileMapLayer" parent="TileMaps" unique_id=1561613296]
+tile_set = SubResource("TileSet_y1s0d")
+navigation_enabled = false
+
+[node name="TileMapLayer2" type="TileMapLayer" parent="TileMaps" unique_id=1421433548]
+tile_set = SubResource("TileSet_l0cd7")
+
+[node name="Enemy" parent="." unique_id=1489396565 node_paths=PackedStringArray("player") instance=ExtResource("3_kg1us")]
+position = Vector2(80, 84)
+collision_mask = 9
+player = NodePath("../player")
+
+[node name="player" parent="." unique_id=901184842 node_paths=PackedStringArray("enemy", "lidars", "mines") instance=ExtResource("4_s18e2")]
+z_index = 5
+position = Vector2(-38, 63)
+collision_mask = 43
+enemy = NodePath("../Enemy")
+lidars = NodePath("../Lidars")
+mines = NodePath("../Mines")
+
+[node name="Lidars" type="Node" parent="." unique_id=2015006892]
+
+[node name="CanvasLayer" type="CanvasLayer" parent="." unique_id=1293340314]
+
+[node name="Captions" type="Label" parent="CanvasLayer" unique_id=828106371]
+anchors_preset = -1
+anchor_left = 0.5
+anchor_top = 0.949
+anchor_right = 0.5
+anchor_bottom = 0.949
+offset_left = -212.25
+offset_top = -23.0
+offset_right = 212.25
+grow_horizontal = 2
+grow_vertical = 0
+horizontal_alignment = 1
+autowrap_mode = 2
+visible_characters_behavior = 1
+
+[node name="AudioBoxes" type="Node2D" parent="." unique_id=1746269674]
+
+[node name="Events" type="Node" parent="." unique_id=1122547946]
+
+[node name="Mines" type="Node" parent="." unique_id=1988421556]
+
+[node name="Items" type="Node" parent="." unique_id=137838894]

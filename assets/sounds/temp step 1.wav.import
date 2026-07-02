@@ -1,0 +1,24 @@
+[remap]
+
+importer="wav"
+type="AudioStreamWAV"
+uid="uid://ccepmw1u6db2m"
+path="res://.godot/imported/temp step 1.wav-0294e09d7d9f8f572db6ad6891360bb8.sample"
+
+[deps]
+
+source_file="res://assets/sounds/temp step 1.wav"
+dest_files=["res://.godot/imported/temp step 1.wav-0294e09d7d9f8f572db6ad6891360bb8.sample"]
+
+[params]
+
+force/8_bit=false
+force/mono=false
+force/max_rate=false
+force/max_rate_hz=44100
+edit/trim=false
+edit/normalize=false
+edit/loop_mode=0
+edit/loop_begin=0
+edit/loop_end=-1
+compress/mode=2

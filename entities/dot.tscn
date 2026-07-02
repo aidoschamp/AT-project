@@ -1,0 +1,36 @@
+[gd_scene format=3 uid="uid://bq13xo1d0u3in"]
+
+[ext_resource type="Script" uid="uid://xcpe6yiqwefd" path="res://entities/dot.gd" id="1_c4igg"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_c4igg"]
+radius = 0.01
+
+[node name="dot" type="Area2D" unique_id=734811301 node_paths=PackedStringArray("despawn_timer", "off_screen_despawn_timer")]
+process_mode = 3
+collision_layer = 4
+collision_mask = 27
+script = ExtResource("1_c4igg")
+despawn_timer = NodePath("DespawnTimer")
+off_screen_despawn_timer = NodePath("OffScreenDespawnTimer")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=158182112]
+shape = SubResource("CircleShape2D_c4igg")
+
+[node name="DespawnTimer" type="Timer" parent="." unique_id=1129204367]
+process_mode = 1
+one_shot = true
+autostart = true
+
+[node name="VisibleOnScreenNotifier2D" type="VisibleOnScreenNotifier2D" parent="." unique_id=630491473]
+
+[node name="OffScreenDespawnTimer" type="Timer" parent="." unique_id=1017030930]
+process_mode = 1
+wait_time = 5.0
+one_shot = true
+
+[connection signal="area_entered" from="." to="." method="_on_area_entered"]
+[connection signal="body_entered" from="." to="." method="_on_body_entered"]
+[connection signal="timeout" from="DespawnTimer" to="." method="_on_timer_timeout"]
+[connection signal="screen_entered" from="VisibleOnScreenNotifier2D" to="." method="_on_visible_on_screen_notifier_2d_screen_entered"]
+[connection signal="screen_exited" from="VisibleOnScreenNotifier2D" to="." method="_on_visible_on_screen_notifier_2d_screen_exited"]
+[connection signal="timeout" from="OffScreenDespawnTimer" to="." method="_on_off_screen_despawn_timer_timeout"]

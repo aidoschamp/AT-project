@@ -1,0 +1,99 @@
+[gd_scene format=3 uid="uid://ccx1a8babckn6"]
+
+[ext_resource type="Script" uid="uid://b8vveilqu1que" path="res://menu/options.gd" id="1_c2u1v"]
+[ext_resource type="PackedScene" uid="uid://ba72awvs8n2jw" path="res://menu/audio_options.tscn" id="2_2iy26"]
+[ext_resource type="PackedScene" uid="uid://cfwq8wfe5rdc0" path="res://menu/graphics_options.tscn" id="3_2iy26"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_sx3uy"]
+bg_color = Color(1, 1, 1, 1)
+corner_radius_top_left = 16
+corner_radius_top_right = 16
+corner_radius_bottom_right = 16
+corner_radius_bottom_left = 16
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_g4kcn"]
+bg_color = Color(1, 1, 1, 1)
+corner_radius_top_left = 16
+corner_radius_top_right = 16
+corner_radius_bottom_right = 16
+corner_radius_bottom_left = 16
+
+[node name="Options" type="Control" unique_id=1216305481]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_c2u1v")
+
+[node name="OptionButtons" type="VBoxContainer" parent="." unique_id=1067138795]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -195.0
+offset_top = -37.0
+offset_right = 195.0
+offset_bottom = 203.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/separation = 20
+
+[node name="Graphics" type="Button" parent="OptionButtons" unique_id=796868343]
+layout_mode = 2
+size_flags_vertical = 3
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_font_sizes/font_size = 30
+theme_override_styles/normal = SubResource("StyleBoxFlat_sx3uy")
+text = "Graphics"
+
+[node name="Audio" type="Button" parent="OptionButtons" unique_id=652722227]
+layout_mode = 2
+size_flags_vertical = 3
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_font_sizes/font_size = 30
+theme_override_styles/normal = SubResource("StyleBoxFlat_sx3uy")
+text = "Audio"
+
+[node name="Back" type="Button" parent="OptionButtons" unique_id=849849256]
+layout_mode = 2
+size_flags_vertical = 3
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_font_sizes/font_size = 30
+theme_override_styles/normal = SubResource("StyleBoxFlat_sx3uy")
+text = "Back"
+
+[node name="AudioOptions" parent="." unique_id=341943445 instance=ExtResource("2_2iy26")]
+visible = false
+layout_mode = 1
+
+[node name="GraphicsOptions" parent="." unique_id=1383220510 instance=ExtResource("3_2iy26")]
+visible = false
+layout_mode = 1
+
+[node name="SaveSettings" type="Button" parent="." unique_id=2029781589]
+visible = false
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.5
+anchor_top = 0.956
+anchor_right = 0.5
+anchor_bottom = 0.956
+offset_left = -77.5
+offset_top = -41.0
+offset_right = 77.5
+grow_horizontal = 2
+grow_vertical = 0
+size_flags_vertical = 3
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_font_sizes/font_size = 21
+theme_override_styles/normal = SubResource("StyleBoxFlat_g4kcn")
+text = "Save Settings"
+
+[connection signal="pressed" from="OptionButtons/Graphics" to="." method="_on_colours_pressed"]
+[connection signal="pressed" from="OptionButtons/Audio" to="." method="_on_audio_pressed"]
+[connection signal="pressed" from="OptionButtons/Back" to="." method="_on_back_pressed"]
+[connection signal="pressed" from="SaveSettings" to="." method="_on_save_settings_pressed"]

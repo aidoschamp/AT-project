@@ -1,0 +1,67 @@
+[gd_scene format=3 uid="uid://c261qfnomfelg"]
+
+[ext_resource type="Script" uid="uid://wnphfjlw0ljs" path="res://menu/main_menu.gd" id="1_f5okj"]
+[ext_resource type="PackedScene" uid="uid://ccx1a8babckn6" path="res://menu/options.tscn" id="2_o5w3e"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_l6cm7"]
+bg_color = Color(1, 1, 1, 1)
+corner_radius_top_left = 16
+corner_radius_top_right = 16
+corner_radius_bottom_right = 16
+corner_radius_bottom_left = 16
+
+[node name="MainMenu" type="Control" unique_id=1235325630]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_f5okj")
+
+[node name="MainButtons" type="VBoxContainer" parent="." unique_id=1864080585]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -195.0
+offset_top = -37.0
+offset_right = 195.0
+offset_bottom = 203.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/separation = 20
+
+[node name="Start" type="Button" parent="MainButtons" unique_id=1789256363]
+layout_mode = 2
+size_flags_vertical = 3
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_font_sizes/font_size = 30
+theme_override_styles/normal = SubResource("StyleBoxFlat_l6cm7")
+text = "Start"
+
+[node name="Options" type="Button" parent="MainButtons" unique_id=2119652833]
+layout_mode = 2
+size_flags_vertical = 3
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_font_sizes/font_size = 30
+theme_override_styles/normal = SubResource("StyleBoxFlat_l6cm7")
+text = "Options"
+
+[node name="Quit" type="Button" parent="MainButtons" unique_id=753675488]
+layout_mode = 2
+size_flags_vertical = 3
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_font_sizes/font_size = 30
+theme_override_styles/normal = SubResource("StyleBoxFlat_l6cm7")
+text = "Quit"
+
+[node name="Options" parent="." unique_id=1216305481 instance=ExtResource("2_o5w3e")]
+visible = false
+layout_mode = 1
+
+[connection signal="pressed" from="MainButtons/Start" to="." method="_on_start_pressed"]
+[connection signal="pressed" from="MainButtons/Options" to="." method="_on_options_pressed"]
+[connection signal="pressed" from="MainButtons/Quit" to="." method="_on_quit_pressed"]
