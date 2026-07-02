@@ -6,13 +6,17 @@ const MAX_SPEED := 300.0
 const ACCELERATION := 1200
 
 
-@export var enemy: Enemy
-@export var gun_timer: Timer
-@export var lidars: Node
-@export var mines: Node
+@onready var enemy: Enemy = $"../Enemy"
+@onready var gun_timer: Timer = $GunTimer
+@onready var lidars: Node = $"../Lidars"
+@onready var mines: Node = $"../Mines"
+
+
 const DOT_COUNT := 5.0
 const DOT_SCENE: PackedScene = preload("res://entities/dot.tscn")
 const MINE_SCENE: PackedScene = preload("res://item/distraction_mine.tscn")
+
+
 var current_spread := PI / 3
 var spread_change_amount := PI / 9
 var max_spread := 3 * PI / 4

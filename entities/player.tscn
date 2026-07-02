@@ -32,10 +32,8 @@ gun_timer = NodePath("GunTimer")
 shape = SubResource("CircleShape2D_g2els")
 script = SubResource("GDScript_3vyb7")
 
-[node name="CanvasLayer" type="CanvasLayer" parent="." unique_id=2137391029 node_paths=PackedStringArray("gun_timer", "progress_bar")]
+[node name="CanvasLayer" type="CanvasLayer" parent="." unique_id=2137391029]
 script = ExtResource("2_g2els")
-gun_timer = NodePath("../GunTimer")
-progress_bar = NodePath("ReloadBar")
 
 [node name="Options" parent="CanvasLayer" unique_id=1216305481 instance=ExtResource("3_e4p34")]
 process_mode = 3

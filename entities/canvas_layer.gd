@@ -1,10 +1,10 @@
 extends CanvasLayer
 
 
-@export var gun_timer: Timer
-@export var progress_bar: ProgressBar
+@onready var gun_timer: Timer = $"../GunTimer"
+@onready var reload_bar: ProgressBar = $ReloadBar
 
 
 func _process(_delta: float) -> void:
 	# display how long untill the player can shoot
-	progress_bar.value = 1 - gun_timer.time_left / gun_timer.wait_time
+	reload_bar.value = 1 - gun_timer.time_left / gun_timer.wait_time

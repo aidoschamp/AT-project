@@ -84,9 +84,7 @@ visible_characters_behavior = 1
 
 [node name="Events" type="Node" parent="." unique_id=1122547946]
 
-[node name="SpawnEnemy" parent="Events" unique_id=279629428 node_paths=PackedStringArray("enemy", "location") instance=ExtResource("5_4axvf")]
-enemy = NodePath("../../Enemy")
-location = NodePath("Location")
+[node name="SpawnEnemy" parent="Events" unique_id=279629428 instance=ExtResource("5_4axvf")]
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Events/SpawnEnemy" unique_id=650846724]
 position = Vector2(-16, -583)

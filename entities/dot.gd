@@ -9,8 +9,8 @@ var colour: Color
 var dot_type: Enums.Colours
 
 
-@export var despawn_timer: Timer
-@export var off_screen_despawn_timer: Timer
+@onready var despawn_timer: Timer = $DespawnTimer
+@onready var off_screen_despawn_timer: Timer = $OffScreenDespawnTimer
 
 
 func _draw() -> void:

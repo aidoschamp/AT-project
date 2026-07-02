@@ -5,11 +5,10 @@
 [sub_resource type="CircleShape2D" id="CircleShape2D_2r41h"]
 radius = 25.079872
 
-[node name="Item" type="Area2D" unique_id=1858012538 node_paths=PackedStringArray("tooltip")]
+[node name="Item" type="Area2D" unique_id=1858012538]
 collision_layer = 16
 collision_mask = 5
 script = ExtResource("1_4gq7n")
-tooltip = NodePath("CanvasLayer/Tooltip")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=1887188624]
 shape = SubResource("CircleShape2D_2r41h")

@@ -5,7 +5,7 @@ class_name Item
 var entered := false
 
 
-@export var tooltip: Label
+@onready var tooltip: Label = $CanvasLayer/Tooltip
 @export var player: Player
 
 

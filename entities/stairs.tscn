@@ -5,9 +5,8 @@
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_tpqne"]
 size = Vector2(256, 128)
 
-[node name="Stairs" type="Area2D" unique_id=1509404905 node_paths=PackedStringArray("tooltip")]
+[node name="Stairs" type="Area2D" unique_id=1509404905]
 script = ExtResource("1_tpqne")
-tooltip = NodePath("CanvasLayer/Tooltip")
 
 [node name="CanvasLayer" type="CanvasLayer" parent="." unique_id=486648845]
 

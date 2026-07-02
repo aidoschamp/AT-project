@@ -5,8 +5,8 @@ class_name AudioBox
 var entered := false
 
 
-@export var animation_player: AnimationPlayer
-@export var tooltip: Label
+@onready var animation_player: AnimationPlayer = $"../AnimationPlayer"
+@onready var tooltip: Label = $CanvasLayer/Tooltip
 
 
 func _process(_delta: float) -> void:

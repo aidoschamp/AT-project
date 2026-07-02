@@ -8,7 +8,7 @@ var entered := false
 @export var location: Enums.Floor
 
 
-@export var tooltip: Label
+@onready var tooltip: Label = $CanvasLayer/Tooltip
 
 
 func change_scene():

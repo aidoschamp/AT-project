@@ -4,11 +4,11 @@ class_name Enemy
 
 const MAX_SPEED = 100.0
 const ACCELERATION = 1200
-@export var player: Player
-@export var step_timer: Timer
-@export var nav: NavigationAgent2D
-@export var steps: AudioStreamPlayer2D
-@export var anger_timer: Timer
+@onready var player: Player = $"../player"
+@onready var step_timer: Timer = $StepTimer
+@onready var nav: NavigationAgent2D = $NavigationAgent2D
+@onready var steps: AudioStreamPlayer2D = $Steps
+@onready var anger_timer: Timer = $AngerTimer
 
 
 var active := false
@@ -33,6 +33,7 @@ func initialise() -> void:
 
 func stop() -> void:
 	active = false
+	step_timer.stop()
 
 
 func _physics_process(delta: float) -> void:
