@@ -25,7 +25,6 @@ func _ready() -> void:
 func _process(delta: float) -> void:
 	if not get_tree().paused:
 		position += velocity * delta
-	print(Globals.current_colours != Globals.colours)
 	if colour != Globals.colours[dot_type]:
 		colour = Globals.colours.duplicate_deep()[dot_type]
 		queue_redraw()

@@ -30,7 +30,6 @@ func _on_back_pressed() -> void:
 			DisplayServer.window_set_mode(DisplayServer.WINDOW_MODE_MAXIMIZED)
 		
 		for bus in Enums.Audio_Buses.values():
-			print(bus)
 			var db = linear_to_db(Globals.settings[Enums.Settings.AUDIO][bus])
 			AudioServer.set_bus_volume_db(bus, db)
 	
