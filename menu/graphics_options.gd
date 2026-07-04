@@ -16,7 +16,7 @@ func _on_colours_pressed() -> void:
 
 
 func _on_fullscreen_check_toggled(toggled_on: bool) -> void:
-	if Globals.settings[Enums.Settings.FULLSCREEN] != toggled_on:
+	if Globals.settings[Enums.Settings.FULLSCREEN] != toggled_on or get_parent().get_parent() is not Player:
 		if toggled_on:
 			DisplayServer.window_set_mode(DisplayServer.WINDOW_MODE_FULLSCREEN)
 		else:
