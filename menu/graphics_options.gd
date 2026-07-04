@@ -16,9 +16,10 @@ func _on_colours_pressed() -> void:
 
 
 func _on_fullscreen_check_toggled(toggled_on: bool) -> void:
-	if toggled_on:
-		DisplayServer.window_set_mode(DisplayServer.WINDOW_MODE_FULLSCREEN)
-	else:
-		DisplayServer.window_set_mode(DisplayServer.WINDOW_MODE_MAXIMIZED)
-	
-	Globals.settings[Enums.Settings.FULLSCREEN] = toggled_on
+	if Globals.settings[Enums.Settings.FULLSCREEN] != toggled_on:
+		if toggled_on:
+			DisplayServer.window_set_mode(DisplayServer.WINDOW_MODE_FULLSCREEN)
+		else:
+			DisplayServer.window_set_mode(DisplayServer.WINDOW_MODE_MAXIMIZED)
+		
+		Globals.settings[Enums.Settings.FULLSCREEN] = toggled_on

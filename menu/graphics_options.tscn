@@ -2,6 +2,7 @@
 
 [ext_resource type="Script" uid="uid://veamcstlk8gs" path="res://menu/graphics_options.gd" id="1_p2uty"]
 [ext_resource type="PackedScene" uid="uid://bxh0y0ikl2vyy" path="res://menu/colour_options.tscn" id="2_3tamv"]
+[ext_resource type="Script" uid="uid://vp2m6ukdvdcx" path="res://menu/button.gd" id="2_xoyq5"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_sx3uy"]
 bg_color = Color(1, 1, 1, 1)
@@ -41,6 +42,7 @@ theme_override_font_sizes/font_size = 30
 button_pressed = true
 text = "Fullscreen"
 expand_icon = true
+script = ExtResource("2_xoyq5")
 
 [node name="Colours" type="Button" parent="Options" unique_id=849849256]
 layout_mode = 2
@@ -49,6 +51,7 @@ theme_override_colors/font_color = Color(0, 0, 0, 1)
 theme_override_font_sizes/font_size = 30
 theme_override_styles/normal = SubResource("StyleBoxFlat_sx3uy")
 text = "Colours"
+script = ExtResource("2_xoyq5")
 
 [node name="Back" type="Button" parent="Options" unique_id=2027244170]
 layout_mode = 2
@@ -57,11 +60,15 @@ theme_override_colors/font_color = Color(0, 0, 0, 1)
 theme_override_font_sizes/font_size = 30
 theme_override_styles/normal = SubResource("StyleBoxFlat_sx3uy")
 text = "Back"
+script = ExtResource("2_xoyq5")
 
 [node name="ColourOptions" parent="." unique_id=1327090105 instance=ExtResource("2_3tamv")]
 visible = false
 layout_mode = 1
 
+[connection signal="pressed" from="Options/FullscreenCheck" to="Options/FullscreenCheck" method="_on_pressed"]
 [connection signal="toggled" from="Options/FullscreenCheck" to="." method="_on_fullscreen_check_toggled"]
 [connection signal="pressed" from="Options/Colours" to="." method="_on_colours_pressed"]
+[connection signal="pressed" from="Options/Colours" to="Options/Colours" method="_on_pressed"]
 [connection signal="pressed" from="Options/Back" to="." method="_on_back_pressed"]
+[connection signal="pressed" from="Options/Back" to="Options/Back" method="_on_pressed"]

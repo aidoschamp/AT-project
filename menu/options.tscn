@@ -2,6 +2,7 @@
 
 [ext_resource type="Script" uid="uid://b8vveilqu1que" path="res://menu/options.gd" id="1_c2u1v"]
 [ext_resource type="PackedScene" uid="uid://ba72awvs8n2jw" path="res://menu/audio_options.tscn" id="2_2iy26"]
+[ext_resource type="Script" uid="uid://vp2m6ukdvdcx" path="res://menu/button.gd" id="2_aeuu6"]
 [ext_resource type="PackedScene" uid="uid://cfwq8wfe5rdc0" path="res://menu/graphics_options.tscn" id="3_2iy26"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_sx3uy"]
@@ -49,6 +50,7 @@ theme_override_colors/font_color = Color(0, 0, 0, 1)
 theme_override_font_sizes/font_size = 30
 theme_override_styles/normal = SubResource("StyleBoxFlat_sx3uy")
 text = "Graphics"
+script = ExtResource("2_aeuu6")
 
 [node name="Audio" type="Button" parent="OptionButtons" unique_id=652722227]
 layout_mode = 2
@@ -57,6 +59,7 @@ theme_override_colors/font_color = Color(0, 0, 0, 1)
 theme_override_font_sizes/font_size = 30
 theme_override_styles/normal = SubResource("StyleBoxFlat_sx3uy")
 text = "Audio"
+script = ExtResource("2_aeuu6")
 
 [node name="Back" type="Button" parent="OptionButtons" unique_id=849849256]
 layout_mode = 2
@@ -65,6 +68,7 @@ theme_override_colors/font_color = Color(0, 0, 0, 1)
 theme_override_font_sizes/font_size = 30
 theme_override_styles/normal = SubResource("StyleBoxFlat_sx3uy")
 text = "Back"
+script = ExtResource("2_aeuu6")
 
 [node name="AudioOptions" parent="." unique_id=341943445 instance=ExtResource("2_2iy26")]
 visible = false
@@ -92,8 +96,13 @@ theme_override_colors/font_color = Color(0, 0, 0, 1)
 theme_override_font_sizes/font_size = 21
 theme_override_styles/normal = SubResource("StyleBoxFlat_g4kcn")
 text = "Save Settings"
+script = ExtResource("2_aeuu6")
 
 [connection signal="pressed" from="OptionButtons/Graphics" to="." method="_on_colours_pressed"]
+[connection signal="pressed" from="OptionButtons/Graphics" to="OptionButtons/Graphics" method="_on_pressed"]
 [connection signal="pressed" from="OptionButtons/Audio" to="." method="_on_audio_pressed"]
+[connection signal="pressed" from="OptionButtons/Audio" to="OptionButtons/Audio" method="_on_pressed"]
 [connection signal="pressed" from="OptionButtons/Back" to="." method="_on_back_pressed"]
+[connection signal="pressed" from="OptionButtons/Back" to="OptionButtons/Back" method="_on_pressed"]
 [connection signal="pressed" from="SaveSettings" to="." method="_on_save_settings_pressed"]
+[connection signal="pressed" from="SaveSettings" to="SaveSettings" method="_on_pressed"]

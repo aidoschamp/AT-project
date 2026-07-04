@@ -2,6 +2,7 @@
 
 [ext_resource type="Script" uid="uid://deg12rdy3koi2" path="res://menu/audio_options.gd" id="1_luej2"]
 [ext_resource type="Script" uid="uid://trum7ytdga65" path="res://menu/audio_slider.gd" id="2_vddeu"]
+[ext_resource type="Script" uid="uid://vp2m6ukdvdcx" path="res://menu/button.gd" id="3_y6orj"]
 
 [sub_resource type="StyleBoxLine" id="StyleBoxLine_luej2"]
 color = Color(1, 1, 1, 1)
@@ -111,8 +112,10 @@ theme_override_colors/font_color = Color(0, 0, 0, 1)
 theme_override_font_sizes/font_size = 30
 theme_override_styles/normal = SubResource("StyleBoxFlat_vddeu")
 text = "Back"
+script = ExtResource("3_y6orj")
 
 [connection signal="value_changed" from="Options/MasterContainer/Master" to="Options/MasterContainer/Master" method="_on_value_changed"]
 [connection signal="value_changed" from="Options/EnemyContainer/Enemy" to="Options/EnemyContainer/Enemy" method="_on_value_changed"]
 [connection signal="value_changed" from="Options/AudioBoxContainer/AudioBox" to="Options/AudioBoxContainer/AudioBox" method="_on_value_changed"]
 [connection signal="pressed" from="Options/Back" to="." method="_on_back_pressed"]
+[connection signal="pressed" from="Options/Back" to="Options/Back" method="_on_pressed"]

@@ -1,6 +1,9 @@
 extends Node
 
 
+@onready var button_click: AudioStreamPlayer = $ButtonClick
+
+
 var settings: Dictionary = {
 	Enums.Settings.AUDIO: {
 		Enums.Audio_Buses.MASTER: 1,

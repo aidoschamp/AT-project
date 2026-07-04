@@ -1,0 +1,10 @@
+[gd_scene format=3 uid="uid://bosmjdppemcyy"]
+
+[ext_resource type="Script" uid="uid://dxlsg1mkvo5ku" path="res://globals/globals.gd" id="1_jmrm8"]
+[ext_resource type="AudioStream" uid="uid://chqgpgie3xvt" path="res://assets/sounds/button_click.mp3" id="2_6nnoh"]
+
+[node name="Globals" type="Node" unique_id=1059309038]
+script = ExtResource("1_jmrm8")
+
+[node name="ButtonClick" type="AudioStreamPlayer" parent="." unique_id=1677518560]
+stream = ExtResource("2_6nnoh")

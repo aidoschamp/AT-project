@@ -9,6 +9,8 @@ const ACCELERATION = 1200
 @onready var nav: NavigationAgent2D = $NavigationAgent2D
 @onready var steps: AudioStreamPlayer2D = $Steps
 @onready var anger_timer: Timer = $AngerTimer
+@onready var breath: AudioStreamPlayer2D = $Breath
+@onready var breath_timer: Timer = $BreathTimer
 
 
 var active := false
@@ -25,6 +27,7 @@ var current_target: Node2D = null
 
 func initialise() -> void:
 	step_timer.start()
+	breath_timer.start()
 	current_target = player
 	targets.append(player)
 	nav.target_position = player.global_position
@@ -82,3 +85,7 @@ func change_anger(new_anger) -> void:
 
 func _on_anger_timer_timeout() -> void:
 	anger = base_anger
+
+
+func _on_breath_timer_timeout() -> void:
+	breath.play()

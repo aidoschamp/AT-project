@@ -21,7 +21,7 @@ buses/default_bus_layout="uid://d5amyuxk3ihk"
 
 [autoload]
 
-Globals="*uid://dxlsg1mkvo5ku"
+Globals="*uid://bosmjdppemcyy"
 SaveLoad="*uid://dx0c78g0sceiv"
 Enums="*uid://bdene43g8vbu8"
 

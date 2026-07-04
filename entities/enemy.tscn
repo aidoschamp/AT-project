@@ -3,6 +3,7 @@
 [ext_resource type="Script" uid="uid://cssn67wdm5gwl" path="res://entities/enemy.gd" id="1_7p1mj"]
 [ext_resource type="AudioStream" uid="uid://ccepmw1u6db2m" path="res://assets/sounds/temp step 1.wav" id="2_4ra3w"]
 [ext_resource type="AudioStream" uid="uid://cm8a66yb632vr" path="res://assets/sounds/temp step 2.wav" id="3_5uy6h"]
+[ext_resource type="AudioStream" uid="uid://die1c4jo61h7r" path="res://assets/sounds/breath.mp3" id="4_uvc0s"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_8tegq"]
 radius = 30.0
@@ -27,8 +28,14 @@ target_desired_distance = 5.0
 
 [node name="Steps" type="AudioStreamPlayer2D" parent="." unique_id=164146936]
 stream = SubResource("AudioStreamRandomizer_c4w8v")
-volume_db = 3.852
 max_distance = 450.0
+panning_strength = 3.0
+bus = &"Enemy"
+
+[node name="Breath" type="AudioStreamPlayer2D" parent="." unique_id=1352417496]
+stream = ExtResource("4_uvc0s")
+autoplay = true
+max_distance = 200.0
 panning_strength = 3.0
 bus = &"Enemy"
 
@@ -38,5 +45,9 @@ wait_time = 1.5
 [node name="AngerTimer" type="Timer" parent="." unique_id=951361143]
 wait_time = 4.0
 
+[node name="BreathTimer" type="Timer" parent="." unique_id=1629257363]
+wait_time = 4.0
+
 [connection signal="timeout" from="StepTimer" to="." method="_on_step_timer_timeout"]
 [connection signal="timeout" from="AngerTimer" to="." method="_on_anger_timer_timeout"]
+[connection signal="timeout" from="BreathTimer" to="." method="_on_breath_timer_timeout"]
