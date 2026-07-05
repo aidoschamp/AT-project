@@ -1,13 +1,19 @@
 extends Control
 
 
+func _ready() -> void:
+	if get_parent() is CanvasLayer:
+		$OptionButtons/Back_Quit.text = "Quit"
+
+
 func _input(event: InputEvent) -> void:
 	if get_parent() is CanvasLayer:
 		if event.is_action_pressed("pause") and not get_tree().paused:
 			get_tree().paused = true
 			visible = true
 		elif event.is_action_pressed("pause"):
-			_on_back_pressed()
+			unpause()
+			back()
 
 
 func _process(_delta: float) -> void:
@@ -17,9 +23,8 @@ func _process(_delta: float) -> void:
 		$SaveSettings.visible = false
 
 
-func _on_back_pressed() -> void:
-	get_tree().paused = false
-	
+func back() -> void:
+	self.visible = false
 	if Globals.current_colours != Globals.colours or Globals.current_settings != Globals.settings:
 		Globals.settings = Globals.current_settings.duplicate_deep()
 		Globals.colours = Globals.current_colours.duplicate_deep()
@@ -33,9 +38,18 @@ func _on_back_pressed() -> void:
 			var db = linear_to_db(Globals.settings[Enums.Settings.AUDIO][bus])
 			AudioServer.set_bus_volume_db(bus, db)
 	
-	self.visible = false
 	if self.get_parent() is Control:
 		self.get_parent().get_child(0).visible = true
+
+
+func unpause() -> void:
+	get_tree().paused = false
+
+
+func _on_back_pressed() -> void:
+	if get_parent() is CanvasLayer:
+		get_tree().quit()
+	back()
 
 
 func _on_colours_pressed() -> void:

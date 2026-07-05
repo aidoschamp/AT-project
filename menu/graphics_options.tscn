@@ -4,13 +4,6 @@
 [ext_resource type="PackedScene" uid="uid://bxh0y0ikl2vyy" path="res://menu/colour_options.tscn" id="2_3tamv"]
 [ext_resource type="Script" uid="uid://vp2m6ukdvdcx" path="res://menu/button.gd" id="2_xoyq5"]
 
-[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_sx3uy"]
-bg_color = Color(1, 1, 1, 1)
-corner_radius_top_left = 16
-corner_radius_top_right = 16
-corner_radius_bottom_right = 16
-corner_radius_bottom_left = 16
-
 [node name="GraphicsOptions" type="Control" unique_id=1216305481]
 layout_mode = 3
 anchors_preset = 15
@@ -20,45 +13,37 @@ grow_horizontal = 2
 grow_vertical = 2
 script = ExtResource("1_p2uty")
 
-[node name="Options" type="VBoxContainer" parent="." unique_id=1067138795]
+[node name="Options" type="VBoxContainer" parent="." unique_id=84206682]
 layout_mode = 1
 anchors_preset = 8
 anchor_left = 0.5
 anchor_top = 0.5
 anchor_right = 0.5
 anchor_bottom = 0.5
-offset_left = -195.0
-offset_top = -37.0
-offset_right = 195.0
-offset_bottom = 203.0
+offset_left = -200.0
+offset_top = -38.0
+offset_right = 200.0
+offset_bottom = 212.0
 grow_horizontal = 2
 grow_vertical = 2
 theme_override_constants/separation = 20
 
-[node name="FullscreenCheck" type="CheckButton" parent="Options" unique_id=453368706]
+[node name="FullscreenCheck" type="Button" parent="Options" unique_id=1923837005]
 layout_mode = 2
 size_flags_vertical = 3
-theme_override_font_sizes/font_size = 30
-button_pressed = true
+theme_override_constants/h_separation = 44
 text = "Fullscreen"
-expand_icon = true
 script = ExtResource("2_xoyq5")
 
 [node name="Colours" type="Button" parent="Options" unique_id=849849256]
 layout_mode = 2
 size_flags_vertical = 3
-theme_override_colors/font_color = Color(0, 0, 0, 1)
-theme_override_font_sizes/font_size = 30
-theme_override_styles/normal = SubResource("StyleBoxFlat_sx3uy")
 text = "Colours"
 script = ExtResource("2_xoyq5")
 
 [node name="Back" type="Button" parent="Options" unique_id=2027244170]
 layout_mode = 2
 size_flags_vertical = 3
-theme_override_colors/font_color = Color(0, 0, 0, 1)
-theme_override_font_sizes/font_size = 30
-theme_override_styles/normal = SubResource("StyleBoxFlat_sx3uy")
 text = "Back"
 script = ExtResource("2_xoyq5")
 
@@ -66,6 +51,7 @@ script = ExtResource("2_xoyq5")
 visible = false
 layout_mode = 1
 
+[connection signal="pressed" from="Options/FullscreenCheck" to="." method="_on_fullscreen_check_pressed"]
 [connection signal="pressed" from="Options/FullscreenCheck" to="Options/FullscreenCheck" method="_on_pressed"]
 [connection signal="toggled" from="Options/FullscreenCheck" to="." method="_on_fullscreen_check_toggled"]
 [connection signal="pressed" from="Options/Colours" to="." method="_on_colours_pressed"]

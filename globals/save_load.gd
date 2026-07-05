@@ -46,3 +46,7 @@ func _load() -> void:
 		Globals.player_data = save_data["player_data"].duplicate_deep()
 		Globals.settings = save_data["settings"].duplicate_deep()
 		Globals.current_settings = save_data["settings"].duplicate_deep()
+		if Globals.settings[Enums.Settings.FULLSCREEN]:
+			DisplayServer.window_set_mode(DisplayServer.WINDOW_MODE_FULLSCREEN)
+		else:
+			DisplayServer.window_set_mode(DisplayServer.WINDOW_MODE_MAXIMIZED)

@@ -4,13 +4,6 @@
 [ext_resource type="Script" uid="uid://c4wmkygwrta63" path="res://menu/color_picker_button.gd" id="2_q0qbc"]
 [ext_resource type="Script" uid="uid://vp2m6ukdvdcx" path="res://menu/button.gd" id="3_dfcw3"]
 
-[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_sx3uy"]
-bg_color = Color(1, 1, 1, 1)
-corner_radius_top_left = 16
-corner_radius_top_right = 16
-corner_radius_bottom_right = 16
-corner_radius_bottom_left = 16
-
 [node name="ColourOptions" type="Control" unique_id=1216305481]
 layout_mode = 3
 anchors_preset = 15
@@ -20,25 +13,25 @@ grow_horizontal = 2
 grow_vertical = 2
 script = ExtResource("1_cuswo")
 
-[node name="Options" type="VBoxContainer" parent="." unique_id=1067138795]
+[node name="Options" type="VBoxContainer" parent="." unique_id=956848935]
 layout_mode = 1
 anchors_preset = 8
 anchor_left = 0.5
 anchor_top = 0.5
 anchor_right = 0.5
 anchor_bottom = 0.5
-offset_left = -195.0
-offset_top = -37.0
-offset_right = 195.0
-offset_bottom = 203.0
+offset_left = -200.0
+offset_top = -38.0
+offset_right = 200.0
+offset_bottom = 212.0
 grow_horizontal = 2
 grow_vertical = 2
-theme_override_constants/separation = 20
+theme_override_constants/separation = 17
 
 [node name="GridContainer" type="GridContainer" parent="Options" unique_id=1092026462]
 layout_mode = 2
 size_flags_vertical = 3
-size_flags_stretch_ratio = 2.3
+size_flags_stretch_ratio = 2.35
 columns = 3
 
 [node name="ColorPickerButton" type="ColorPickerButton" parent="Options/GridContainer" unique_id=1262120307]
@@ -142,9 +135,6 @@ colour_item = 8
 [node name="Back" type="Button" parent="Options" unique_id=849849256]
 layout_mode = 2
 size_flags_vertical = 3
-theme_override_colors/font_color = Color(0, 0, 0, 1)
-theme_override_font_sizes/font_size = 30
-theme_override_styles/normal = SubResource("StyleBoxFlat_sx3uy")
 text = "Back"
 script = ExtResource("3_dfcw3")
 
