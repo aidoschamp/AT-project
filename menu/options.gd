@@ -31,12 +31,18 @@ func back() -> void:
 		
 		if Globals.settings[Enums.Settings.FULLSCREEN]:
 			DisplayServer.window_set_mode(DisplayServer.WINDOW_MODE_FULLSCREEN)
+			$GraphicsOptions/Options/FullscreenCheck.text = "Windowed"
 		else:
 			DisplayServer.window_set_mode(DisplayServer.WINDOW_MODE_MAXIMIZED)
+			$GraphicsOptions/Options/FullscreenCheck.text = "Fullscreen"
 		
 		for bus in Enums.Audio_Buses.values():
+			$AudioOptions/Options.get_child(bus).get_child(1).value = Globals.settings[Enums.Settings.AUDIO][bus]
 			var db = linear_to_db(Globals.settings[Enums.Settings.AUDIO][bus])
 			AudioServer.set_bus_volume_db(bus, db)
+		
+		for colour_picker in $GraphicsOptions/ColourOptions/Options/GridContainer.get_children():
+			colour_picker.color = Globals.colours[colour_picker.colour_item]
 	
 	if self.get_parent() is Control:
 		self.get_parent().get_child(0).visible = true

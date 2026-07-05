@@ -12,7 +12,7 @@ var settings: Dictionary = {
 	},
 	Enums.Settings.FULLSCREEN: true,
 }
-var current_settings: Dictionary = settings
+var current_settings: Dictionary = settings.duplicate_deep()
 
 
 var player_data: Dictionary = {
@@ -35,7 +35,7 @@ var colours: Dictionary = {
 	Enums.Colours.ITEM: Color.LIGHT_PINK,
 }
 var default_colours: Dictionary = colours.duplicate_deep()
-var current_colours: Dictionary = colours
+var current_colours: Dictionary = colours.duplicate_deep()
 
 
 const ITEM_NAMES := {
