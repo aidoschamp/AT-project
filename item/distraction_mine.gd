@@ -6,6 +6,13 @@ const DOT_COUNT = 10.0
 const DOT_SCENE: PackedScene = preload("res://entities/dot.tscn")
 @onready var lidars: Node = $"../../Lidars"
 var hearable = true
+var colour: Color = Globals.colours.duplicate_deep()[Enums.Colours.MINE]
+
+
+func _process(_delta: float) -> void:
+	if colour != Globals.colours[Enums.Colours.MINE]:
+		colour = Globals.colours.duplicate_deep()[Enums.Colours.MINE]
+		queue_redraw()
 
 
 func _draw() -> void:
