@@ -1,0 +1,47 @@
+classDiagram
+direction DU
+    class main_menu{
+        _on_start_pressed()
+        _on_options_pressed()
+        _on_quit_pressed()
+    }
+    class options{
+        _ready()
+        _input(InputEvent event)
+        _process()
+        back()
+        unpause()
+        _on_back_pressed()
+        _on_graphics_pressed()
+        _on_audio_pressed()
+        _on_save_settings_pressed()
+    }
+    class graphics_options{
+        _ready()
+        _on_back_pressed()
+        _on_colours_pressed()
+        _on_fullscreen_check_pressed()
+    }
+    class colour_options{
+        _on_back_pressed()
+    }
+    class color_picker_button{
+        Enums.Colours colour_item
+        ColorPicker colour_picker
+        _ready()
+        _on_color_changed(Color colour)
+    }
+    class audio_options{
+        _on_back_pressed()
+    }
+    class audio_slider{
+        Enums.Audio_Buses bus
+        _ready()
+        _on_value_changed(float value)
+    }
+    main_menu <--> options
+    options <--> graphics_options
+    graphics_options <--> colour_options
+    colour_options <--> color_picker_button
+    options <--> audio_options
+    audio_options <--> audio_slider

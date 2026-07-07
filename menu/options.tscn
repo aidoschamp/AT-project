@@ -83,7 +83,7 @@ theme_override_font_sizes/font_size = 21
 text = "Save Settings"
 script = ExtResource("2_aeuu6")
 
-[connection signal="pressed" from="OptionButtons/Graphics" to="." method="_on_colours_pressed"]
+[connection signal="pressed" from="OptionButtons/Graphics" to="." method="_on_graphics_pressed"]
 [connection signal="pressed" from="OptionButtons/Graphics" to="OptionButtons/Graphics" method="_on_pressed"]
 [connection signal="pressed" from="OptionButtons/Audio" to="." method="_on_audio_pressed"]
 [connection signal="pressed" from="OptionButtons/Audio" to="OptionButtons/Audio" method="_on_pressed"]

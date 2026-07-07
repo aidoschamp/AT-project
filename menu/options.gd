@@ -58,11 +58,6 @@ func _on_back_pressed() -> void:
 	back()
 
 
-func _on_colours_pressed() -> void:
-	$OptionButtons.visible = false
-	$GraphicsOptions.visible = true
-
-
 func _on_audio_pressed() -> void:
 	$OptionButtons.visible = false
 	$AudioOptions.visible = true
@@ -70,3 +65,8 @@ func _on_audio_pressed() -> void:
 
 func _on_save_settings_pressed() -> void:
 	SaveLoad._save_settings()
+
+
+func _on_graphics_pressed() -> void:
+	$OptionButtons.visible = false
+	$GraphicsOptions.visible = true

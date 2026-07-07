@@ -1,72 +1,72 @@
 classDiagram
 direction LR
     class Player {
-	    float MAX_SPEED
-	    int ACCELERATION
-	    Enemy enemy
-	    Timer gun_timer
-	    Node lidars
-	    Node mines
-	    float DOT_COUNT
-	    PackedScene DOT_SCENE
-	    PackedScene MINE_SCENE
-	    float current_spread
-	    float spread_change_amount
-	    float max_spread
-	    bool hearable
-	    Dictionary inventory
-	    Color player_colour
-	    Color lidar_beam_colour
-	    PackedVector2Array points
-	    float angle
-	    Vector2 direction
-	    DistractionMine mine
-	    Area2D dot
-	    Vector2 angle
-	    float direction
-	    _draw()
-	    _physics_process(float delta)
-	    _input(InputEvent event)
+        float MAX_SPEED
+        int ACCELERATION
+        Enemy enemy
+        Timer gun_timer
+        Node lidars
+        Node mines
+        float DOT_COUNT
+        PackedScene DOT_SCENE
+        PackedScene MINE_SCENE
+        float current_spread
+        float spread_change_amount
+        float max_spread
+        bool hearable
+        Dictionary inventory
+        Color player_colour
+        Color lidar_beam_colour
+        PackedVector2Array points
+        float angle
+        Vector2 direction
+        DistractionMine mine
+        Area2D dot
+        Vector2 angle
+        float direction
+        _draw()
+        _physics_process(float delta)
+        _input(InputEvent event)
     }
     class Enemy {
-	    float MAX_SPEED
-	    int ACCELERATION
-	    Player player
-	    Timer step_timer
-	    NavigationAgent2D nav
-	    AudioStreamPlayer2D steps
-	    Timer anger_timer
-	    AudioStreamPlayer2D breath
-	    Timer breath_timer
-	    bool active
-	    float anger
-	    float base_anger
-	    Array[Node2D] targets
-	    Node2D current_target
-	    Vector2 direction
-	    initialise()
-	    stop()
-	    _physics_process(float delta)
-	    add_target(Node2D target)
-	    remove_target(Node2D target)
-	    _on_step_timer_timeout()
-	    change_anger(new_anger)
-	    _on_anger_timer_timeout()
-	    _on_breath_timer_timeout()
+        float MAX_SPEED
+        int ACCELERATION
+        Player player
+        Timer step_timer
+        NavigationAgent2D nav
+        AudioStreamPlayer2D steps
+        Timer anger_timer
+        AudioStreamPlayer2D breath
+        Timer breath_timer
+        bool active
+        float anger
+        float base_anger
+        Array[Node2D] targets
+        Node2D current_target
+        Vector2 direction
+        initialise()
+        stop()
+        _physics_process(float delta)
+        add_target(Node2D target)
+        remove_target(Node2D target)
+        _on_step_timer_timeout()
+        change_anger(new_anger)
+        _on_anger_timer_timeout()
+        _on_breath_timer_timeout()
     }
     class Item {
-	    bool entered
-	    Label tooltip
-	    Player player
-	    Enums.Items item
-	    _process()
-	    _on_body_entered()
-	    _on_body_exited()
+        bool entered
+        Label tooltip
+        Player player
+        Enums.Items item
+        _process()
+        _on_body_entered()
+        _on_body_exited()
     }
     class teleport_enemy {
-	    Enemy enemy
-	    Node2D location
-	    _on_body_entered()
+        Enemy enemy
+        Node2D location
+        _on_body_entered()
     }
     Player <--> Enemy
     Item --> Player
