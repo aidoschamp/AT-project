@@ -22,11 +22,10 @@ corner_radius_top_right = 7
 corner_radius_bottom_right = 7
 corner_radius_bottom_left = 7
 
-[node name="player" type="CharacterBody2D" unique_id=901184842 node_paths=PackedStringArray("gun_timer")]
+[node name="Player" type="CharacterBody2D" unique_id=901184842]
 process_mode = 3
 collision_mask = 11
 script = ExtResource("1_g2els")
-gun_timer = NodePath("GunTimer")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=325000494]
 shape = SubResource("CircleShape2D_g2els")

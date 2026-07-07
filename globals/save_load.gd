@@ -19,7 +19,7 @@ func _save() -> void:
 	contents_to_save["colours"] = Globals.colours
 	contents_to_save["player_data"] = Globals.player_data
 	contents_to_save["settings"] = Globals.settings
-	var file = FileAccess.open(save_location, FileAccess.WRITE)
+	var file := FileAccess.open(save_location, FileAccess.WRITE)
 	file.store_var(contents_to_save.duplicate())
 	file.close()
 

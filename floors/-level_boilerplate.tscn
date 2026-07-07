@@ -41,18 +41,14 @@ navigation_enabled = false
 [node name="TileMapLayer2" type="TileMapLayer" parent="TileMaps" unique_id=1421433548]
 tile_set = SubResource("TileSet_l0cd7")
 
-[node name="Enemy" parent="." unique_id=1489396565 node_paths=PackedStringArray("player") instance=ExtResource("3_kg1us")]
+[node name="Enemy" parent="." unique_id=1489396565 instance=ExtResource("3_kg1us")]
 position = Vector2(80, 84)
 collision_mask = 9
-player = NodePath("../player")
 
-[node name="player" parent="." unique_id=901184842 node_paths=PackedStringArray("enemy", "lidars", "mines") instance=ExtResource("4_s18e2")]
+[node name="player" parent="." unique_id=901184842 instance=ExtResource("4_s18e2")]
 z_index = 5
 position = Vector2(-38, 63)
 collision_mask = 43
-enemy = NodePath("../Enemy")
-lidars = NodePath("../Lidars")
-mines = NodePath("../Mines")
 
 [node name="Lidars" type="Node" parent="." unique_id=2015006892]
 
@@ -73,7 +69,7 @@ horizontal_alignment = 1
 autowrap_mode = 2
 visible_characters_behavior = 1
 
-[node name="AudioBoxes" type="Node2D" parent="." unique_id=1746269674]
+[node name="AudioBoxes" type="Node" parent="." unique_id=156670645]
 
 [node name="Events" type="Node" parent="." unique_id=1122547946]
 

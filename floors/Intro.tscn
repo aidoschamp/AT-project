@@ -142,9 +142,9 @@ horizontal_alignment = 1
 autowrap_mode = 2
 visible_characters_behavior = 1
 
-[node name="AudioBoxes" type="Node2D" parent="." unique_id=801012236]
+[node name="AudioBoxes" type="Node" parent="." unique_id=974170708]
 
-[node name="Test" type="Node2D" parent="AudioBoxes" unique_id=1086979536]
+[node name="Test" type="Node" parent="AudioBoxes" unique_id=1977422539]
 
 [node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="AudioBoxes/Test" unique_id=1797126874]
 stream = ExtResource("5_rasye")

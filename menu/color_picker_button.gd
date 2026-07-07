@@ -2,7 +2,7 @@ extends ColorPickerButton
 
 
 @export var colour_item: Enums.Colours
-var colour_picker = get_picker()
+var colour_picker: ColorPicker = get_picker()
 
 
 func _ready() -> void:

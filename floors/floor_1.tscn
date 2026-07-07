@@ -76,7 +76,7 @@ horizontal_alignment = 1
 autowrap_mode = 2
 visible_characters_behavior = 1
 
-[node name="AudioBoxes" type="Node2D" parent="." unique_id=1746269674]
+[node name="AudioBoxes" type="Node" parent="." unique_id=46316874]
 
 [node name="Events" type="Node" parent="." unique_id=1122547946]
 
