@@ -19,16 +19,6 @@ process_mode = 1
 one_shot = true
 autostart = true
 
-[node name="VisibleOnScreenNotifier2D" type="VisibleOnScreenNotifier2D" parent="." unique_id=630491473]
-
-[node name="OffScreenDespawnTimer" type="Timer" parent="." unique_id=1017030930]
-process_mode = 1
-wait_time = 5.0
-one_shot = true
-
 [connection signal="area_entered" from="." to="." method="_on_area_entered"]
 [connection signal="body_entered" from="." to="." method="_on_body_entered"]
 [connection signal="timeout" from="DespawnTimer" to="." method="_on_timer_timeout"]
-[connection signal="screen_entered" from="VisibleOnScreenNotifier2D" to="." method="_on_visible_on_screen_notifier_2d_screen_entered"]
-[connection signal="screen_exited" from="VisibleOnScreenNotifier2D" to="." method="_on_visible_on_screen_notifier_2d_screen_exited"]
-[connection signal="timeout" from="OffScreenDespawnTimer" to="." method="_on_off_screen_despawn_timer_timeout"]

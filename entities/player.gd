@@ -69,25 +69,38 @@ func _input(event: InputEvent) -> void:
 		enemy.add_target(mine)
 
 	# shoot only if gun is reloaded
-	if event.is_action_pressed("shoot") and gun_timer.time_left == 0:
+	if event.is_action_pressed("lidar shoot") and gun_timer.time_left == 0:
 		gun_timer.start()
 		for i in range(DOT_COUNT):
-			var dot: Area2D = DOT_SCENE.instantiate() # create dot
+			var dot: Dot = DOT_SCENE.instantiate() # create dot
 			var angle: Vector2 = get_global_mouse_position() - global_position # set base angle and fix for player rotation
 			angle = angle.rotated(current_spread * (i / (DOT_COUNT - 1)) - current_spread / 2) # position angle so that each dot is evenly spread
 			dot.position = position
 			dot.angle = angle.normalized()
 			lidars.add_child(dot)
-		
-	var direction := Input.get_axis("decrease spread", "increase spread")
+	
+	
+	if event.is_action_pressed("shotgun shoot") and inventory[Enums.Items.SHOTGUN] > 0:
+		for i in range(DOT_COUNT * 2):
+			inventory[Enums.Items.SHOTGUN] -= 1
+			var dot: Dot = DOT_SCENE.instantiate() # create dot
+			var angle: Vector2 = get_global_mouse_position() - global_position # set base angle and fix for player rotation
+			angle = angle.rotated(PI / 3 * (i / (DOT_COUNT * 2 - 1)) - PI / 3 / 2) # position angle so that each dot is evenly spread
+			dot.position = position
+			dot.angle = angle.normalized()
+			dot.is_shotgun_bullet = true
+			lidars.add_child(dot)
+	
+	
+	var spread_change_direction := Input.get_axis("decrease spread", "increase spread")
 	
 	# change spread of dots if not trying to change out of spread bounds
-	if current_spread + spread_change_amount < max_spread and direction == 1 or current_spread - spread_change_amount > PI / 3 and direction == -1:
-		current_spread += spread_change_amount * direction
+	if current_spread + spread_change_amount < max_spread and spread_change_direction == 1 or current_spread - spread_change_amount > PI / 3 and spread_change_direction == -1:
+		current_spread += spread_change_amount * spread_change_direction
 		queue_redraw()
-	elif direction == 1:
+	elif spread_change_direction == 1:
 		current_spread = max_spread
 		queue_redraw()
-	elif direction == -1:
+	elif spread_change_direction == -1:
 		current_spread = PI / 3
 		queue_redraw()

@@ -1,4 +1,5 @@
 extends Area2D
+class_name Dot
 
 
 var angle: Vector2
@@ -7,14 +8,15 @@ var speed := 400.0
 var active := true
 var colour: Color
 var dot_type: Enums.Colours
+var is_shotgun_bullet := false
 
 
 @onready var despawn_timer: Timer = $DespawnTimer
-@onready var off_screen_despawn_timer: Timer = $OffScreenDespawnTimer
 
 
 func _draw() -> void:
-	draw_circle(Vector2.ZERO, 10, colour)
+	var radius: int = 5 if is_shotgun_bullet else 10
+	draw_circle(Vector2.ZERO, radius, colour)
 
 
 func _ready() -> void:
@@ -65,6 +67,11 @@ func _on_body_entered(body: Node2D) -> void:
 			colour = Globals.colours[Enums.Colours.ENEMY]
 			despawn_timer.start(2)
 			dot_type = Enums.Colours.ENEMY
+			if is_shotgun_bullet:
+				if not body.shot:
+					body.change_anger(1)
+					body.shot = true
+				call_deferred("set_enemy_as_parent", body)
 		# don't want to hit the player
 		if not body is Player:
 			active = false
@@ -72,13 +79,5 @@ func _on_body_entered(body: Node2D) -> void:
 			queue_redraw()
 
 
-func _on_visible_on_screen_notifier_2d_screen_exited() -> void:
-	off_screen_despawn_timer.start()
-
-
-func _on_visible_on_screen_notifier_2d_screen_entered() -> void:
-	off_screen_despawn_timer.stop()
-
-
-func _on_off_screen_despawn_timer_timeout() -> void:
-	queue_free()
+func set_enemy_as_parent(enemy) -> void:
+	reparent(enemy)

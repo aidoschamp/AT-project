@@ -15,13 +15,15 @@ enum Colours {
 
 
 enum Items {
-	MINE
+	MINE,
+	SHOTGUN,
 }
 
 
 enum Floor {
 	INTRO, 
-	FLOOR1
+	FLOOR1,
+	FLOOR2,
 }
 
 

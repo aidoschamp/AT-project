@@ -34,7 +34,6 @@ bus = &"Enemy"
 
 [node name="Breath" type="AudioStreamPlayer2D" parent="." unique_id=1352417496]
 stream = ExtResource("4_uvc0s")
-autoplay = true
 max_distance = 200.0
 panning_strength = 3.0
 bus = &"Enemy"

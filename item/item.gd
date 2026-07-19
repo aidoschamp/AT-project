@@ -6,7 +6,7 @@ var entered := false
 
 
 @onready var tooltip: Label = $CanvasLayer/Tooltip
-@export var player: Player
+@onready var player: Player = $"../../player"
 
 
 @export var item: Enums.Items

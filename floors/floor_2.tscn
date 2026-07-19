@@ -1,12 +1,12 @@
-[gd_scene format=3 uid="uid://d1bdgceh3qu8h"]
+[gd_scene format=3 uid="uid://bhhgxjca3pot8"]
 
-[ext_resource type="Texture2D" uid="uid://r5sldiapnpri" path="res://assets/sprites/spritemap.png" id="1_sevxf"]
-[ext_resource type="Texture2D" uid="uid://bqpqreeevt8yj" path="res://assets/sprites/navigation layer.png" id="2_0cp0j"]
-[ext_resource type="PackedScene" uid="uid://ly25mcab1jaw" path="res://entities/enemy.tscn" id="3_kg1us"]
-[ext_resource type="PackedScene" uid="uid://dhpnpplxsy78" path="res://entities/player.tscn" id="4_s18e2"]
+[ext_resource type="Texture2D" uid="uid://r5sldiapnpri" path="res://assets/sprites/spritemap.png" id="1_4tf7f"]
+[ext_resource type="Texture2D" uid="uid://bqpqreeevt8yj" path="res://assets/sprites/navigation layer.png" id="2_dek0q"]
+[ext_resource type="PackedScene" uid="uid://ly25mcab1jaw" path="res://entities/enemy.tscn" id="3_jskds"]
+[ext_resource type="PackedScene" uid="uid://dhpnpplxsy78" path="res://entities/player.tscn" id="4_fbyuj"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_pkyk8"]
-texture = ExtResource("1_sevxf")
+texture = ExtResource("1_4tf7f")
 0:0/0 = 0
 0:0/0/physics_layer_0/polygon_0/points = PackedVector2Array(-8, -8, 8, -8, 8, 8, -8, 8)
 
@@ -22,7 +22,7 @@ outlines = Array[PackedVector2Array]([PackedVector2Array(-8, -8, 8, -8, 8, 8, -8
 agent_radius = 0.0
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_o5kxv"]
-texture = ExtResource("2_0cp0j")
+texture = ExtResource("2_dek0q")
 0:0/0 = 0
 0:0/0/navigation_layer_0/polygon = SubResource("NavigationPolygon_klq6b")
 
@@ -30,7 +30,7 @@ texture = ExtResource("2_0cp0j")
 navigation_layer_0/layers = 1
 sources/1 = SubResource("TileSetAtlasSource_o5kxv")
 
-[node name="LevelBoilerplate" type="Node2D" unique_id=1287166355]
+[node name="Floor2" type="Node2D" unique_id=1287166355]
 
 [node name="TileMaps" type="Node" parent="." unique_id=2027340437]
 
@@ -41,11 +41,11 @@ navigation_enabled = false
 [node name="TileMapLayer2" type="TileMapLayer" parent="TileMaps" unique_id=1421433548]
 tile_set = SubResource("TileSet_l0cd7")
 
-[node name="Enemy" parent="." unique_id=1489396565 instance=ExtResource("3_kg1us")]
+[node name="Enemy" parent="." unique_id=1489396565 instance=ExtResource("3_jskds")]
 position = Vector2(80, 84)
 collision_mask = 9
 
-[node name="player" parent="." unique_id=901184842 instance=ExtResource("4_s18e2")]
+[node name="player" parent="." unique_id=901184842 instance=ExtResource("4_fbyuj")]
 z_index = 5
 position = Vector2(-38, 63)
 collision_mask = 43
@@ -77,4 +77,4 @@ visible_characters_behavior = 1
 
 [node name="Items" type="Node" parent="." unique_id=137838894]
 
-[node name="ShotMoveLocations" type="Node" parent="." unique_id=163814495]
+[node name="ShotMoveLocations" type="Node" parent="." unique_id=981837683]

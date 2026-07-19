@@ -17,7 +17,8 @@ var current_settings: Dictionary = settings.duplicate_deep()
 
 var player_data: Dictionary = {
 	Enums.Player_Data.INVENTORY: {
-		Enums.Items.MINE: 0
+		Enums.Items.MINE: 0,
+		Enums.Items.SHOTGUN: 0,
 	},
 	Enums.Player_Data.FLOOR: Enums.Floor.INTRO,
 }
@@ -39,11 +40,13 @@ var current_colours: Dictionary = colours.duplicate_deep()
 
 
 const ITEM_NAMES := {
-	Enums.Items.MINE: "Distraction Mine"
+	Enums.Items.MINE: "Distraction Mine",
+	Enums.Items.SHOTGUN: "Shotgun",
 }
 
 
 const FLOOR_SCENES := {
 	Enums.Floor.INTRO: "res://floors/Intro.tscn",
 	Enums.Floor.FLOOR1: "res://floors/floor_1.tscn",
+	Enums.Floor.FLOOR2: "res://floors/floor_2.tscn"
 }
