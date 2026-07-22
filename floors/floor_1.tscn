@@ -8,6 +8,7 @@
 [ext_resource type="PackedScene" uid="uid://jcm4j64ndwsv" path="res://entities/teleport_enemy.tscn" id="5_4axvf"]
 [ext_resource type="Script" uid="uid://bnc6ygv0qe0qh" path="res://floors/floor_2_break_wall.gd" id="6_a0hjd"]
 [ext_resource type="PackedScene" uid="uid://b3t3i1lva857q" path="res://item/item.tscn" id="6_ukysg"]
+[ext_resource type="Script" uid="uid://bs00iytc5oxoq" path="res://floors/marker_2d.gd" id="9_jdbhc"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_pkyk8"]
 texture = ExtResource("1_4eyoi")
@@ -156,5 +157,6 @@ item = 1
 
 [node name="Marker2D" type="Marker2D" parent="ShotMoveLocations" unique_id=388299772]
 position = Vector2(-2188, -1451)
+script = ExtResource("9_jdbhc")
 
 [connection signal="body_entered" from="Events/BreakWall" to="Events/BreakWall" method="_on_body_entered"]

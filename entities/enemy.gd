@@ -28,11 +28,16 @@ var targets: Array[Node2D]
 var current_target: Node2D = null
 
 
+func _draw() -> void:
+	draw_circle(Vector2.ZERO, 30, Color())
+
+
 func initialise() -> void:
 	step_timer.start()
 	breath_timer.start()
 	current_target = player
 	targets.append(player)
+	targets.append_array(shot_move_locations.get_children())
 	nav.target_position = player.global_position
 	active = true
 
@@ -47,18 +52,16 @@ func stop() -> void:
 func _physics_process(delta: float) -> void:
 	if active:
 		# find closest hearable target
-		if shot:
-			for location in shot_move_locations.get_children():
-				if nav.distance_to_target() > (location.global_position - position).length() or current_target is not Marker2D:
-					nav.target_position = location.global_position
-					current_target = location
-		else:
-			for target in targets:
-				if not target.hearable:
-					continue
-				if nav.distance_to_target() > (target.global_position - position).length() or target == current_target or not current_target.hearable or current_target is Marker2D:
-					nav.target_position = target.global_position
-					current_target = target
+		for target in targets:
+			# skips over if target isn't hearable (this part always is false if they're shot though), and also skips over if target is a marker and they're not shot
+			if (not target.hearable and not shot) or (not target is Marker2D and shot):
+				continue
+
+			var target_closer = nav.distance_to_target() > (target.global_position - position).length()
+			var change_to_marker = not current_target is Marker2D and shot
+			if target_closer or target == current_target or not current_target.hearable or change_to_marker:
+				nav.target_position = target.global_position
+				current_target = target
 
 		# moves towards target
 		if not nav.is_target_reached():

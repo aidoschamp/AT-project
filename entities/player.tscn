@@ -65,3 +65,7 @@ position_smoothing_enabled = true
 [node name="GunTimer" type="Timer" parent="." unique_id=797894155]
 process_mode = 1
 one_shot = true
+
+[node name="JarvisModeTimer" type="Timer" parent="." unique_id=1544656470]
+
+[connection signal="timeout" from="JarvisModeTimer" to="." method="_on_jarvis_mode_timer_timeout"]

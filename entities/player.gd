@@ -26,6 +26,10 @@ var player_colour: Color
 var lidar_beam_colour: Color
 
 
+@onready var jarvis_mode_timer: Timer = $JarvisModeTimer
+var jarvis_mode: bool = false
+
+
 func _draw() -> void:
 	player_colour = Globals.colours[Enums.Colours.PLAYER]
 	lidar_beam_colour = Globals.colours[Enums.Colours.LIDAR_BEAM]
@@ -61,6 +65,12 @@ func _physics_process(delta: float) -> void:
 
 
 func _input(event: InputEvent) -> void:
+	if event.is_action_pressed("jarvis mode"):
+		jarvis_mode_timer.start()
+	if event.is_action_released("jarvis mode"):
+		jarvis_mode_timer.stop()
+
+
 	if event.is_action_pressed("place mine") and inventory[Enums.Items.MINE] > 0:
 		inventory[Enums.Items.MINE] -= 1
 		var mine: DistractionMine = MINE_SCENE.instantiate() # create mine
@@ -104,3 +114,11 @@ func _input(event: InputEvent) -> void:
 	elif spread_change_direction == -1:
 		current_spread = PI / 3
 		queue_redraw()
+
+
+func _on_jarvis_mode_timer_timeout() -> void:
+	jarvis_mode = not jarvis_mode
+	if jarvis_mode:
+		RenderingServer.set_default_clear_color(Color(0.302, 0.302, 0.302))
+	else:
+		RenderingServer.set_default_clear_color(Color())
