@@ -10,6 +10,8 @@ const ACCELERATION := 1200
 @onready var gun_timer: Timer = $GunTimer
 @onready var lidars: Node = $"../Lidars"
 @onready var mines: Node = $"../Mines"
+@onready var mine_label: Label = $CanvasLayer/Mines/Label
+@onready var shotgun_label: Label = $CanvasLayer/Shotgun/Label
 
 
 const DOT_COUNT := 5
@@ -84,6 +86,7 @@ func _input(event: InputEvent) -> void:
 		if event.is_action_pressed("shotgun shoot") and inventory[Enums.Items.SHOTGUN] > 0:
 			create_dots(PI/3, DOT_COUNT*2, true)
 			inventory[Enums.Items.SHOTGUN] -= 1
+			shotgun_label.text = str(inventory[Enums.Items.SHOTGUN])
 		
 		
 		var spread_change_direction := Input.get_axis("decrease spread", "increase spread")
@@ -113,6 +116,7 @@ func create_dots(spread: float, amount: int, is_shotgun_bullet: bool) -> void:
 
 func place_mine() -> void:
 	inventory[Enums.Items.MINE] -= 1
+	mine_label.text = str(inventory[Enums.Items.MINE])
 	var mine: DistractionMine = MINE_SCENE.instantiate() # create mine
 	mine.position = position
 	mines.add_child(mine)

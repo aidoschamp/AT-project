@@ -21,6 +21,7 @@ var player_data: Dictionary = {
 		Enums.Items.SHOTGUN: 0,
 	},
 	Enums.Player_Data.FLOOR: Enums.Floor.INTRO,
+	Enums.Player_Data.OBTAINED_ITEMS: []
 }
 
 
@@ -35,7 +36,6 @@ var colours: Dictionary = {
 	Enums.Colours.MINE: Color.PURPLE,
 	Enums.Colours.ITEM: Color.LIGHT_PINK,
 }
-var default_colours: Dictionary = colours.duplicate_deep()
 var current_colours: Dictionary = colours.duplicate_deep()
 
 

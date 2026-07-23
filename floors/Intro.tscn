@@ -103,6 +103,23 @@ size = Vector2(16, 112)
 [node name="Intro" type="Node2D" unique_id=500228127]
 script = SubResource("GDScript_klq6b")
 
+[node name="CanvasLayer" type="CanvasLayer" parent="." unique_id=1647071661]
+
+[node name="Captions" type="Label" parent="CanvasLayer" unique_id=108607814]
+anchors_preset = -1
+anchor_left = 0.5
+anchor_top = 0.949
+anchor_right = 0.5
+anchor_bottom = 0.949
+offset_left = -212.25
+offset_top = -23.0
+offset_right = 212.25
+grow_horizontal = 2
+grow_vertical = 0
+horizontal_alignment = 1
+autowrap_mode = 2
+visible_characters_behavior = 1
+
 [node name="TileMaps" type="Node" parent="." unique_id=1079686382]
 
 [node name="TileMapLayer" type="TileMapLayer" parent="TileMaps" unique_id=1011400035]
@@ -124,23 +141,6 @@ position = Vector2(-144, 153)
 collision_mask = 43
 
 [node name="Lidars" type="Node" parent="." unique_id=582723425]
-
-[node name="CanvasLayer" type="CanvasLayer" parent="." unique_id=1647071661]
-
-[node name="Captions" type="Label" parent="CanvasLayer" unique_id=108607814]
-anchors_preset = -1
-anchor_left = 0.5
-anchor_top = 0.949
-anchor_right = 0.5
-anchor_bottom = 0.949
-offset_left = -212.25
-offset_top = -23.0
-offset_right = 212.25
-grow_horizontal = 2
-grow_vertical = 0
-horizontal_alignment = 1
-autowrap_mode = 2
-visible_characters_behavior = 1
 
 [node name="AudioBoxes" type="Node" parent="." unique_id=974170708]
 

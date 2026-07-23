@@ -30,6 +30,7 @@ enum Floor {
 enum Player_Data {
 	INVENTORY,
 	FLOOR,
+	OBTAINED_ITEMS,
 }
 
 
