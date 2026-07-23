@@ -1,0 +1,23 @@
+flowchart LR
+    Input{Input} --> |W| W[Move Up]
+    Input --> |S| S[Move Down]
+    Input --> |A| A[Move Left]
+    Input --> |D| D[Move Right]
+    Input --> |Mouse Wheel Up| Inc[Increase Spread]
+    Input --> |Mouse Wheel Down| Dec[Decrease Spread]
+    Input --> |Left Mouse Button| Rel{Is Reloaded}
+    Rel --> |Yes| Shoot[Shoot Lidars]
+    Input --> |Space| On-Interact{Can Interact With Something}
+    On-Interact --> |Yes| Interacting-With{Interact With}
+    Interacting-With --> |Audio Box| Play-Audio[Play Audio]
+    Interacting-With --> |Item| Get-Item[Get Item]
+    Interacting-With --> |Stairs| Stairs[Go To Next Floor]
+    Input --> |Ctrl| Has-Mines{Has At Least 1 Mine}
+    Has-Mines --> |Yes| Place-Mine[Place Mine]
+    Input --> |Escape| Is-Paused{Is Game Paused}
+    Is-Paused --> |Yes| Unpause
+    Is-Paused --> |No| Pause
+    Input --> |Right Mouse Button| Has-Shotgun{Has At Least 1 Shotgun Shot}
+    Has-Shotgun --> |Yes| Shoot-Shotgun[Shoot Shotgun]
+    Input --> |J| Held{Is Held For More Than 1s}
+    Held --> |Yes| Debug[Activate Debug Mode]
