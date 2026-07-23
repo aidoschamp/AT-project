@@ -49,19 +49,23 @@ func stop() -> void:
 	step_timer.stop()
 
 
+func check_target() -> void:
+	# find closest hearable target
+	for target in targets:
+		# skips over if target isn't hearable (this part always is false if they're shot though), and also skips over if target is a marker and they're not shot
+		if (not target.hearable and not shot) or (not target is Marker2D and shot):
+			continue
+
+		var target_closer = nav.distance_to_target() > (target.global_position - position).length()
+		var change_to_marker = not current_target is Marker2D and shot
+		if target_closer or target == current_target or not current_target.hearable or change_to_marker:
+			nav.target_position = target.global_position
+			current_target = target
+
+
 func _physics_process(delta: float) -> void:
 	if active:
-		# find closest hearable target
-		for target in targets:
-			# skips over if target isn't hearable (this part always is false if they're shot though), and also skips over if target is a marker and they're not shot
-			if (not target.hearable and not shot) or (not target is Marker2D and shot):
-				continue
-
-			var target_closer = nav.distance_to_target() > (target.global_position - position).length()
-			var change_to_marker = not current_target is Marker2D and shot
-			if target_closer or target == current_target or not current_target.hearable or change_to_marker:
-				nav.target_position = target.global_position
-				current_target = target
+		check_target()
 
 		# moves towards target
 		if not nav.is_target_reached():
