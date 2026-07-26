@@ -6,8 +6,10 @@
 [ext_resource type="PackedScene" uid="uid://dhpnpplxsy78" path="res://entities/player.tscn" id="4_jdbhc"]
 [ext_resource type="PackedScene" uid="uid://csh6w465i0ein" path="res://entities/stairs.tscn" id="5_3bfx2"]
 [ext_resource type="PackedScene" uid="uid://jcm4j64ndwsv" path="res://entities/teleport_enemy.tscn" id="5_4axvf"]
+[ext_resource type="PackedScene" uid="uid://bnmp8oq81dwos" path="res://entities/audio_box.tscn" id="5_ukysg"]
 [ext_resource type="Script" uid="uid://bnc6ygv0qe0qh" path="res://floors/floor_2_break_wall.gd" id="6_a0hjd"]
 [ext_resource type="PackedScene" uid="uid://b3t3i1lva857q" path="res://item/item.tscn" id="6_ukysg"]
+[ext_resource type="AudioStream" uid="uid://dl58rb04hydea" path="res://assets/sounds/wall break.mp3" id="8_ukysg"]
 [ext_resource type="Script" uid="uid://bs00iytc5oxoq" path="res://floors/marker_2d.gd" id="9_jdbhc"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_pkyk8"]
@@ -87,6 +89,16 @@ collision_mask = 43
 
 [node name="AudioBoxes" type="Node" parent="." unique_id=46316874]
 
+[node name="Hallways" type="Node" parent="AudioBoxes" unique_id=1510875259]
+
+[node name="AudioBox" parent="AudioBoxes/Hallways" unique_id=1858012538 instance=ExtResource("5_ukysg")]
+position = Vector2(170, -313)
+
+[node name="Shotgun" type="Node" parent="AudioBoxes" unique_id=454405508]
+
+[node name="AudioBox" parent="AudioBoxes/Shotgun" unique_id=525344618 instance=ExtResource("5_ukysg")]
+position = Vector2(-375, -1460)
+
 [node name="Events" type="Node" parent="." unique_id=1122547946]
 
 [node name="SpawnEnemy" parent="Events" unique_id=279629428 instance=ExtResource("5_4axvf")]
@@ -118,6 +130,11 @@ script = ExtResource("6_a0hjd")
 position = Vector2(-1000, -1464)
 shape = SubResource("RectangleShape2D_vao7y")
 
+[node name="AudioStreamPlayer2D" type="AudioStreamPlayer2D" parent="Events/BreakWall" unique_id=566521554]
+position = Vector2(-1000, -1461)
+stream = ExtResource("8_ukysg")
+max_distance = 600.0
+
 [node name="TeleportEnemy" parent="Events" unique_id=504381053 instance=ExtResource("5_4axvf")]
 change_enemy_state = false
 
@@ -137,7 +154,7 @@ location = 2
 
 [node name="Items" type="Node" parent="." unique_id=1318783105]
 
-[node name="MinePickup" parent="Items" unique_id=1858012538 instance=ExtResource("6_ukysg")]
+[node name="MinePickup" parent="Items" unique_id=27852354 instance=ExtResource("6_ukysg")]
 position = Vector2(-290, -138)
 
 [node name="MinePickup2" parent="Items" unique_id=423638894 instance=ExtResource("6_ukysg")]
@@ -150,7 +167,7 @@ position = Vector2(2255, -1049)
 position = Vector2(1050, -1278)
 
 [node name="ShotgunPickup" parent="Items" unique_id=692118811 instance=ExtResource("6_ukysg")]
-position = Vector2(-377, -1486)
+position = Vector2(-375, -1518)
 item = 1
 
 [node name="ShotMoveLocations" type="Node" parent="." unique_id=1536647681]
