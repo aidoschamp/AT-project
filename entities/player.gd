@@ -32,6 +32,10 @@ var lidar_beam_colour: Color
 var jarvis_mode: bool = false
 
 
+var dead: bool = false
+@onready var death_sound: AudioStreamPlayer = $DeathSound
+
+
 func _draw() -> void:
 	player_colour = Globals.colours[Enums.Colours.PLAYER]
 	lidar_beam_colour = Globals.colours[Enums.Colours.LIDAR_BEAM]
@@ -48,7 +52,7 @@ func _draw() -> void:
 func _physics_process(delta: float) -> void:
 	if player_colour != Globals.colours[Enums.Colours.PLAYER] or lidar_beam_colour != Globals.colours[Enums.Colours.LIDAR_BEAM]:
 		queue_redraw()
-	if get_tree().paused:
+	if get_tree().paused or dead:
 		return
 	look_at(get_global_mouse_position())
 	# get input direction
@@ -64,10 +68,30 @@ func _physics_process(delta: float) -> void:
 	hearable = velocity != Vector2.ZERO
 	
 	move_and_slide()
+	
+	for i in range(get_slide_collision_count()):
+		var collision: KinematicCollision2D = get_slide_collision(i)
+		var collider = collision.get_collider()
+		
+		if collider is Enemy:
+			die()
+
+
+func go_to_main_menu() -> void:
+	get_tree().change_scene_to_file("res://menu/main_menu.tscn")
+
+
+func die() -> void:
+	dead = true
+	enemy.step_timer.stop()
+	enemy.breath_timer.stop()
+	death_sound.play()
+	await death_sound.finished
+	call_deferred("go_to_main_menu")
 
 
 func _input(event: InputEvent) -> void:
-	if not get_tree().paused:
+	if not get_tree().paused and not dead:
 		if event.is_action_pressed("jarvis mode"):
 			jarvis_mode_timer.start()
 		if event.is_action_released("jarvis mode"):
@@ -104,7 +128,7 @@ func _input(event: InputEvent) -> void:
 
 
 func create_dots(spread: float, amount: int, is_shotgun_bullet: bool) -> void:
-	for i in range(DOT_COUNT):
+	for i in range(amount):
 		var dot: Dot = DOT_SCENE.instantiate() # create dot
 		var angle: Vector2 = get_global_mouse_position() - global_position # set base angle and fix for player rotation
 		angle = angle.rotated(spread * (i / (float(amount) - 1)) - spread / 2) # position angle so that each dot is evenly spread

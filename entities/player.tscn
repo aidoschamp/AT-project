@@ -7,11 +7,10 @@
 [ext_resource type="Texture2D" uid="uid://culnaxx6nsvi3" path="res://assets/Input Prompts/Default/keyboard_ctrl_outline.png" id="4_rfe5m"]
 [ext_resource type="Texture2D" uid="uid://mok1q86cmrxy" path="res://assets/Input Prompts/Default/keyboard_escape_outline.png" id="5_i623q"]
 [ext_resource type="Texture2D" uid="uid://cxrh44xkc0rg5" path="res://assets/Input Prompts/Default/mouse_right_outline.png" id="5_qly61"]
+[ext_resource type="AudioStream" uid="uid://cw7ad2a1gkfh6" path="res://assets/sounds/death.mp3" id="8_i623q"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_g2els"]
 radius = 15.0
-
-[sub_resource type="GDScript" id="GDScript_3vyb7"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_qhqgy"]
 corner_radius_top_left = 7
@@ -33,7 +32,6 @@ script = ExtResource("1_g2els")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=325000494]
 shape = SubResource("CircleShape2D_g2els")
-script = SubResource("GDScript_3vyb7")
 
 [node name="CanvasLayer" type="CanvasLayer" parent="." unique_id=2137391029]
 script = ExtResource("2_g2els")
@@ -153,6 +151,15 @@ texture = ExtResource("5_i623q")
 process_mode = 3
 visible = false
 
+[node name="ColorRect" type="ColorRect" parent="CanvasLayer" unique_id=1664113971]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+size_flags_horizontal = 4
+color = Color(0, 0, 0, 1)
+
 [node name="Camera2D" type="Camera2D" parent="." unique_id=581789559]
 scale = Vector2(2796.8503, -27.205406)
 zoom = Vector2(0.64, 0.64)
@@ -164,5 +171,8 @@ process_mode = 1
 one_shot = true
 
 [node name="JarvisModeTimer" type="Timer" parent="." unique_id=1544656470]
+
+[node name="DeathSound" type="AudioStreamPlayer" parent="." unique_id=1230191161]
+stream = ExtResource("8_i623q")
 
 [connection signal="timeout" from="JarvisModeTimer" to="." method="_on_jarvis_mode_timer_timeout"]
