@@ -4,7 +4,7 @@
 [ext_resource type="Texture2D" uid="uid://bqpqreeevt8yj" path="res://assets/sprites/navigation layer.png" id="2_jscph"]
 [ext_resource type="PackedScene" uid="uid://ly25mcab1jaw" path="res://entities/enemy.tscn" id="3_uh0pl"]
 [ext_resource type="PackedScene" uid="uid://dhpnpplxsy78" path="res://entities/player.tscn" id="4_e0n7l"]
-[ext_resource type="AudioStream" uid="uid://ql1e27iymcii" path="res://assets/sounds/test.mp3" id="5_rasye"]
+[ext_resource type="AudioStream" uid="uid://pdws52l1wk4v" path="res://assets/sounds/test.wav" id="5_ybhky"]
 [ext_resource type="PackedScene" uid="uid://bnmp8oq81dwos" path="res://entities/audio_box.tscn" id="6_2f6ab"]
 [ext_resource type="PackedScene" uid="uid://jcm4j64ndwsv" path="res://entities/teleport_enemy.tscn" id="7_tgory"]
 [ext_resource type="PackedScene" uid="uid://csh6w465i0ein" path="res://entities/stairs.tscn" id="8_kmcfi"]
@@ -144,17 +144,22 @@ collision_mask = 43
 
 [node name="AudioBoxes" type="Node" parent="." unique_id=974170708]
 
+[node name="LetOut" type="Node" parent="AudioBoxes" unique_id=795291413]
+
+[node name="AudioBox" parent="AudioBoxes/LetOut" unique_id=1858012538 instance=ExtResource("6_2f6ab")]
+position = Vector2(369, -398)
+
 [node name="Test" type="Node" parent="AudioBoxes" unique_id=1977422539]
 
 [node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="AudioBoxes/Test" unique_id=1797126874]
-stream = ExtResource("5_rasye")
+stream = ExtResource("5_ybhky")
 bus = &"AudioBox"
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="AudioBoxes/Test" unique_id=249664389]
 libraries/ = SubResource("AnimationLibrary_ppgk2")
 
-[node name="AudioBox" parent="AudioBoxes/Test" unique_id=1858012538 instance=ExtResource("6_2f6ab")]
-position = Vector2(382, -388)
+[node name="AudioBox" parent="AudioBoxes/Test" unique_id=2127121289 instance=ExtResource("6_2f6ab")]
+position = Vector2(276, -642)
 
 [node name="Events" type="Node" parent="." unique_id=648401433]
 
