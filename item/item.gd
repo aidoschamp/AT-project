@@ -18,6 +18,9 @@ var obtained_items: Array = Globals.player_data[Enums.Player_Data.OBTAINED_ITEMS
 
 func _process(_delta: float) -> void:
 	if Input.is_action_just_pressed("interact") and entered:
+		for area in get_overlapping_areas():
+			if area is Dot:
+				area.queue_free()
 		var item_gui: Control = canvas.get_child(item)
 		player.inventory[item] += 1
 		item_gui.get_child(0).text = str(player.inventory[item])

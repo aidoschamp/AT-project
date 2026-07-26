@@ -41,7 +41,7 @@ func _on_area_entered(area: Area2D) -> void:
 	if active:
 		if area is AudioBox:
 			colour = Globals.colours[Enums.Colours.AUDIO_BOX]
-			despawn_timer.start(2)
+			despawn_timer.stop()
 			dot_type = Enums.Colours.AUDIO_BOX
 		elif area is Stairs:
 			colour = Globals.colours[Enums.Colours.STAIRS]
@@ -49,7 +49,7 @@ func _on_area_entered(area: Area2D) -> void:
 			dot_type = Enums.Colours.STAIRS
 		elif area is Item:
 			colour = Globals.colours[Enums.Colours.ITEM]
-			despawn_timer.start(2)
+			despawn_timer.stop()
 			dot_type = Enums.Colours.ITEM
 		active = false
 		velocity *= 0
