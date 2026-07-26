@@ -74,7 +74,7 @@ func _physics_process(delta: float) -> void:
 		var collision: KinematicCollision2D = get_slide_collision(i)
 		var collider = collision.get_collider()
 		
-		if collider is Enemy:
+		if collider is Enemy and not dead:
 			die()
 
 
