@@ -34,6 +34,7 @@ var jarvis_mode: bool = false
 
 var dead: bool = false
 @onready var death_sound: AudioStreamPlayer = $DeathSound
+@onready var black_screen: ColorRect = $CanvasLayer/BlackScreen
 
 
 func _draw() -> void:
@@ -83,10 +84,13 @@ func go_to_main_menu() -> void:
 
 func die() -> void:
 	dead = true
+	Input.mouse_mode = Input.MOUSE_MODE_HIDDEN
+	black_screen.visible = true
 	enemy.step_timer.stop()
 	enemy.breath_timer.stop()
 	death_sound.play()
 	await death_sound.finished
+	Input.mouse_mode = Input.MOUSE_MODE_VISIBLE
 	call_deferred("go_to_main_menu")
 
 
