@@ -11,10 +11,6 @@ var contents_to_save: Dictionary = {
 }
 
 
-func _ready() -> void:
-	_load()
-
-
 func _save() -> void:
 	contents_to_save["colours"] = Globals.colours
 	contents_to_save["player_data"] = Globals.player_data

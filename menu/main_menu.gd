@@ -2,6 +2,7 @@ extends Control
 
 
 func _ready() -> void:
+	SaveLoad._load()
 	RenderingServer.set_default_clear_color(Color())
 
 
