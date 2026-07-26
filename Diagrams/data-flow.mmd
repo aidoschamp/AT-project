@@ -1,30 +1,28 @@
 flowchart LR
     user
-    main((main))
-    enemy((enemy))
-    player((player))
-    dot((dot))
+    enemy((move enemy))
+    player((player action))
+    move((move player))
+    place-dot((place dot))
     mine((mine))
-    audiobox((audiobox))
-    stairs((stairs))
+    audiobox((play audio))
+    stairs((move floor))
     teleport-enemy((teleport enemy))
     save-load((save load))
     save-file@{ shape: datastore, label: "save file" }
-    user --> |input| main
-    main --> |player pos, distraction mine pos, markers pos| enemy
-    main --> |input| player
-    player --> |angle, position, is_shotgun_bullet| dot
-    player --> |position| mine
-    mine --> |angle, position| dot
-    dot --> |shot| enemy
-    main --> |input| audiobox
-    main --> |input| stairs
-    stairs --> |new floor| main
+    user --> |input| move
+    user --> |player pos, distraction mine pos, markers pos| enemy
+    user --> |input| player
+    player --> |angle, position, is_shotgun_bullet| place-dot
+    player --> |position| mine((place mine))
+    mine-shoot((shoot mine)) --> |angle, position| place-dot
+    place-dot --> |shot| enemy
+    user --> |input| audiobox
+    user --> |input| stairs
     player --> |player pos| teleport-enemy
     teleport-enemy --> |location| enemy
     mine --> |hearable| enemy
     player --> |hearable| enemy
-    main --> |player_data, colours, settings| save-load
-    save-load --> |player_data, colours, settings| main
+    user --> |player_data, colours, settings| save-load
     save-load --> |save_data| save-file
     save-file --> |save_data| save-load
