@@ -19,8 +19,13 @@ func _input(event: InputEvent) -> void:
 func _process(_delta: float) -> void:
 	if Globals.current_colours != Globals.colours or Globals.current_settings != Globals.settings:
 		$SaveSettings.visible = true
+		$ResetSettings.visible = false
+	elif Globals.default_colours != Globals.colours or Globals.default_settings != Globals.settings:
+		$SaveSettings.visible = false
+		$ResetSettings.visible = true
 	else:
 		$SaveSettings.visible = false
+		$ResetSettings.visible = false
 
 
 func back() -> void:
@@ -65,6 +70,16 @@ func _on_audio_pressed() -> void:
 
 func _on_save_settings_pressed() -> void:
 	SaveLoad._save_settings()
+
+
+func _on_reset_settings_pressed() -> void:
+	if not Globals.settings[Enums.Settings.FULLSCREEN]:
+		DisplayServer.window_set_mode(DisplayServer.WINDOW_MODE_FULLSCREEN)
+	Globals.colours = Globals.default_colours.duplicate_deep()
+	Globals.settings = Globals.default_settings.duplicate_deep()
+	SaveLoad._save_settings()
+	get_parent().add_child(preload("res://menu/options.tscn").instantiate())
+	queue_free()
 
 
 func _on_graphics_pressed() -> void:

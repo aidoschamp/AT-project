@@ -13,7 +13,15 @@ grow_horizontal = 2
 grow_vertical = 2
 script = ExtResource("1_f5okj")
 
-[node name="MainButtons" type="VBoxContainer" parent="." unique_id=1864080585]
+[node name="Buttons" type="Control" parent="." unique_id=576510033]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="MainButtons" type="VBoxContainer" parent="Buttons" unique_id=1864080585]
 layout_mode = 1
 anchors_preset = 8
 anchor_left = 0.5
@@ -28,31 +36,50 @@ grow_horizontal = 2
 grow_vertical = 2
 theme_override_constants/separation = 20
 
-[node name="Start" type="Button" parent="MainButtons" unique_id=1789256363]
+[node name="Start" type="Button" parent="Buttons/MainButtons" unique_id=1789256363]
 layout_mode = 2
 size_flags_vertical = 3
 text = "Start"
 script = ExtResource("2_1x3cv")
 
-[node name="Options" type="Button" parent="MainButtons" unique_id=2119652833]
+[node name="Options" type="Button" parent="Buttons/MainButtons" unique_id=2119652833]
 layout_mode = 2
 size_flags_vertical = 3
 text = "Options"
 script = ExtResource("2_1x3cv")
 
-[node name="Quit" type="Button" parent="MainButtons" unique_id=753675488]
+[node name="Quit" type="Button" parent="Buttons/MainButtons" unique_id=753675488]
 layout_mode = 2
 size_flags_vertical = 3
 text = "Quit"
 script = ExtResource("2_1x3cv")
 
+[node name="DeleteSave" type="Button" parent="Buttons" unique_id=1619433279]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.5
+anchor_top = 0.897
+anchor_right = 0.5
+anchor_bottom = 0.897
+offset_left = 456.0
+offset_top = 527.876
+offset_right = 656.0
+offset_bottom = 562.876
+grow_horizontal = 2
+grow_vertical = 2
+size_flags_vertical = 3
+theme_override_font_sizes/font_size = 21
+text = "Delete Save"
+
 [node name="Options" parent="." unique_id=1216305481 instance=ExtResource("2_o5w3e")]
 visible = false
 layout_mode = 1
 
-[connection signal="pressed" from="MainButtons/Start" to="." method="_on_start_pressed"]
-[connection signal="pressed" from="MainButtons/Start" to="MainButtons/Start" method="_on_pressed"]
-[connection signal="pressed" from="MainButtons/Options" to="." method="_on_options_pressed"]
-[connection signal="pressed" from="MainButtons/Options" to="MainButtons/Options" method="_on_pressed"]
-[connection signal="pressed" from="MainButtons/Quit" to="." method="_on_quit_pressed"]
-[connection signal="pressed" from="MainButtons/Quit" to="MainButtons/Quit" method="_on_pressed"]
+[connection signal="pressed" from="Buttons/MainButtons/Start" to="." method="_on_start_pressed"]
+[connection signal="pressed" from="Buttons/MainButtons/Start" to="Buttons/MainButtons/Start" method="_on_pressed"]
+[connection signal="pressed" from="Buttons/MainButtons/Options" to="." method="_on_options_pressed"]
+[connection signal="pressed" from="Buttons/MainButtons/Options" to="Buttons/MainButtons/Options" method="_on_pressed"]
+[connection signal="pressed" from="Buttons/MainButtons/Quit" to="." method="_on_quit_pressed"]
+[connection signal="pressed" from="Buttons/MainButtons/Quit" to="Buttons/MainButtons/Quit" method="_on_pressed"]
+[connection signal="pressed" from="Buttons/DeleteSave" to="." method="_on_delete_save_pressed"]
+[connection signal="pressed" from="Buttons/DeleteSave" to="Buttons/DeleteSave" method="_on_pressed"]
