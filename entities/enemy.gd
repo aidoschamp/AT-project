@@ -64,7 +64,7 @@ func check_target() -> void:
 
 
 func _physics_process(delta: float) -> void:
-	if active and not player.dead:
+	if active:
 		check_target()
 
 		# moves towards target

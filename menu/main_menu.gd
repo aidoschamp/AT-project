@@ -2,6 +2,7 @@ extends Control
 
 
 func _ready() -> void:
+	get_tree().paused = false
 	SaveLoad._load()
 	RenderingServer.set_default_clear_color(Color())
 
