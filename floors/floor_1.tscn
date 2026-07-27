@@ -134,6 +134,7 @@ shape = SubResource("RectangleShape2D_vao7y")
 position = Vector2(-1000, -1461)
 stream = ExtResource("8_ukysg")
 max_distance = 600.0
+bus = &"Enemy"
 
 [node name="TeleportEnemy" parent="Events" unique_id=504381053 instance=ExtResource("5_4axvf")]
 change_enemy_state = false
