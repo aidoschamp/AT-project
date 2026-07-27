@@ -6,6 +6,7 @@
 size = Vector2(256, 128)
 
 [node name="Stairs" type="Area2D" unique_id=1509404905]
+collision_layer = 128
 script = ExtResource("1_tpqne")
 
 [node name="CanvasLayer" type="CanvasLayer" parent="." unique_id=486648845]

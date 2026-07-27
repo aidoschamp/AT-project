@@ -111,6 +111,7 @@ pause={
 2d_physics/layer_5="AudioBoxes"
 2d_physics/layer_6="Event"
 2d_physics/layer_7="Distraction Mines"
+2d_physics/layer_8="Stairs"
 
 [physics]
 

@@ -8,7 +8,7 @@ radius = 0.01
 [node name="dot" type="Area2D" unique_id=734811301]
 process_mode = 3
 collision_layer = 4
-collision_mask = 26
+collision_mask = 154
 script = ExtResource("1_c4igg")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=158182112]
