@@ -4,6 +4,7 @@
 [ext_resource type="AudioStream" uid="uid://ccepmw1u6db2m" path="res://assets/sounds/temp step 1.wav" id="2_4ra3w"]
 [ext_resource type="AudioStream" uid="uid://cm8a66yb632vr" path="res://assets/sounds/temp step 2.wav" id="3_5uy6h"]
 [ext_resource type="AudioStream" uid="uid://die1c4jo61h7r" path="res://assets/sounds/breath.mp3" id="4_uvc0s"]
+[ext_resource type="AudioStream" uid="uid://dhme6okxw1qwd" path="res://assets/music/Aiden 3 drums.mp3" id="5_x8e4v"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_8tegq"]
 radius = 30.0
@@ -46,6 +47,13 @@ wait_time = 4.0
 
 [node name="BreathTimer" type="Timer" parent="." unique_id=1629257363]
 wait_time = 4.0
+
+[node name="Drums" type="AudioStreamPlayer2D" parent="." unique_id=704340208]
+stream = ExtResource("5_x8e4v")
+max_distance = 830.0
+attenuation = 0.42044804
+panning_strength = 0.0
+parameters/looping = true
 
 [connection signal="timeout" from="StepTimer" to="." method="_on_step_timer_timeout"]
 [connection signal="timeout" from="AngerTimer" to="." method="_on_anger_timer_timeout"]

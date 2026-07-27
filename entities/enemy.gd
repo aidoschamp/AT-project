@@ -12,7 +12,7 @@ const ACCELERATION = 1200
 @onready var breath: AudioStreamPlayer2D = $Breath
 @onready var breath_timer: Timer = $BreathTimer
 @onready var shot_move_locations: Node = $"../ShotMoveLocations"
-
+@onready var drums: AudioStreamPlayer2D = $Drums
 
 
 var active := false
@@ -33,6 +33,7 @@ func _draw() -> void:
 
 
 func initialise() -> void:
+	drums.play()
 	step_timer.start()
 	breath_timer.start()
 	current_target = player
@@ -43,6 +44,7 @@ func initialise() -> void:
 
 
 func stop() -> void:
+	drums.stop()
 	breath_timer.stop()
 	velocity = Vector2.ZERO
 	active = false
