@@ -97,7 +97,7 @@ position = Vector2(170, -313)
 [node name="Shotgun" type="Node" parent="AudioBoxes" unique_id=454405508]
 
 [node name="AudioBox" parent="AudioBoxes/Shotgun" unique_id=525344618 instance=ExtResource("5_ukysg")]
-position = Vector2(-375, -1460)
+position = Vector2(-1115, -1467)
 
 [node name="Events" type="Node" parent="." unique_id=1122547946]
 
@@ -168,7 +168,7 @@ position = Vector2(2255, -1049)
 position = Vector2(1050, -1278)
 
 [node name="ShotgunPickup" parent="Items" unique_id=692118811 instance=ExtResource("6_ukysg")]
-position = Vector2(-375, -1518)
+position = Vector2(-375, -1490)
 item = 1
 
 [node name="ShotMoveLocations" type="Node" parent="." unique_id=1536647681]
