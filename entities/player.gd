@@ -2,7 +2,7 @@ extends CharacterBody2D
 class_name Player
 
 
-const MAX_SPEED := 300.0
+const MAX_SPEED := 300
 const ACCELERATION := 1200
 
 
@@ -32,7 +32,6 @@ var lidar_beam_colour: Color
 var jarvis_mode: bool = false
 
 
-var dead: bool = false
 @onready var death_sound: AudioStreamPlayer = $DeathSound
 @onready var black_screen: ColorRect = $CanvasLayer/BlackScreen
 
@@ -53,12 +52,11 @@ func _draw() -> void:
 func _physics_process(delta: float) -> void:
 	if player_colour != Globals.colours[Enums.Colours.PLAYER] or lidar_beam_colour != Globals.colours[Enums.Colours.LIDAR_BEAM]:
 		queue_redraw()
-	if get_tree().paused or dead:
+	if get_tree().paused:
 		return
 	look_at(get_global_mouse_position())
 	# get input direction
 	var direction := Input.get_vector("left", "right", "up", "down")
-	
 	# apply acceleration to player with vector
 	if direction != Vector2.ZERO:
 		velocity = velocity.move_toward(direction * MAX_SPEED, ACCELERATION * delta)
@@ -74,7 +72,7 @@ func _physics_process(delta: float) -> void:
 		var collision: KinematicCollision2D = get_slide_collision(i)
 		var collider = collision.get_collider()
 		
-		if collider is Enemy and not dead:
+		if collider is Enemy and not get_tree().paused:
 			die()
 
 
@@ -83,7 +81,7 @@ func go_to_main_menu() -> void:
 
 
 func die() -> void:
-	dead = true
+	get_tree().paused = true
 	Input.mouse_mode = Input.MOUSE_MODE_HIDDEN
 	black_screen.visible = true
 	enemy.step_timer.stop()
@@ -95,7 +93,7 @@ func die() -> void:
 
 
 func _input(event: InputEvent) -> void:
-	if not get_tree().paused and not dead:
+	if not get_tree().paused:
 		if event.is_action_pressed("jarvis mode"):
 			jarvis_mode_timer.start()
 		if event.is_action_released("jarvis mode"):
