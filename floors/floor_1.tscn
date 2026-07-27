@@ -133,7 +133,9 @@ shape = SubResource("RectangleShape2D_vao7y")
 [node name="AudioStreamPlayer2D" type="AudioStreamPlayer2D" parent="Events/BreakWall" unique_id=566521554]
 position = Vector2(-1000, -1461)
 stream = ExtResource("8_ukysg")
+volume_db = 4.16
 max_distance = 600.0
+attenuation = 0.21022435
 bus = &"Enemy"
 
 [node name="TeleportEnemy" parent="Events" unique_id=504381053 instance=ExtResource("5_4axvf")]
