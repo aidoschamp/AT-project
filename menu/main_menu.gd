@@ -24,4 +24,4 @@ func _on_quit_pressed() -> void:
 
 func _on_delete_save_pressed() -> void:
 	Globals.player_data = Globals.default_player_data
-	$DeleteSave.visible = false
+	$Buttons/DeleteSave.visible = false

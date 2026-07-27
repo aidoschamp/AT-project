@@ -56,20 +56,21 @@ script = ExtResource("2_1x3cv")
 
 [node name="DeleteSave" type="Button" parent="Buttons" unique_id=1619433279]
 layout_mode = 1
-anchors_preset = -1
+anchors_preset = 8
 anchor_left = 0.5
-anchor_top = 0.897
+anchor_top = 0.5
 anchor_right = 0.5
-anchor_bottom = 0.897
-offset_left = 456.0
-offset_top = 527.876
-offset_right = 656.0
-offset_bottom = 562.876
+anchor_bottom = 0.5
+offset_left = -100.0
+offset_top = 239.75598
+offset_right = 100.0
+offset_bottom = 274.75598
 grow_horizontal = 2
 grow_vertical = 2
 size_flags_vertical = 3
 theme_override_font_sizes/font_size = 21
 text = "Delete Save"
+script = ExtResource("2_1x3cv")
 
 [node name="Options" parent="." unique_id=1216305481 instance=ExtResource("2_o5w3e")]
 visible = false
