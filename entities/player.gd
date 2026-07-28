@@ -81,6 +81,7 @@ func go_to_main_menu() -> void:
 
 
 func die() -> void:
+	Globals.music.stop()
 	get_tree().paused = true
 	Input.mouse_mode = Input.MOUSE_MODE_HIDDEN
 	black_screen.visible = true

@@ -2,6 +2,7 @@ extends Control
 
 
 func _ready() -> void:
+	Globals.music.play()
 	get_tree().paused = false
 	SaveLoad._load()
 	if Globals.player_data[Enums.Player_Data.FLOOR] != Enums.Floor.INTRO:

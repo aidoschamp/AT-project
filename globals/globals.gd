@@ -2,6 +2,7 @@ extends Node
 
 
 @onready var button_click: AudioStreamPlayer = $ButtonClick
+@onready var music: AudioStreamPlayer = $AudioStreamPlayer
 
 
 var settings: Dictionary = {
