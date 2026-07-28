@@ -98,7 +98,7 @@ func _on_step_timer_timeout() -> void:
 func change_anger(new_anger) -> void:
 	if anger < base_anger + new_anger:
 		anger = base_anger + new_anger
-		step_timer.wait_time = 1.5 - anger * 1.3
+		step_timer.wait_time = 1.3 - anger * 1.1
 	if anger_timer.is_stopped():
 		anger_timer.start()
 	else:

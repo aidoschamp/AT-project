@@ -11,7 +11,6 @@ var entered := false
 
 func _process(_delta: float) -> void:
 	if Input.is_action_just_pressed("interact") and entered:
-		print("yo")
 		animation_player.play("caption")
 		for area in get_overlapping_areas():
 			if area is Dot:
