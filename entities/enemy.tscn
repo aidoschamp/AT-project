@@ -29,7 +29,8 @@ target_desired_distance = 5.0
 
 [node name="Steps" type="AudioStreamPlayer2D" parent="." unique_id=164146936]
 stream = SubResource("AudioStreamRandomizer_c4w8v")
-max_distance = 450.0
+volume_db = 2.496
+max_distance = 550.0
 panning_strength = 3.0
 bus = &"Enemy"
 
@@ -52,7 +53,7 @@ wait_time = 4.0
 stream = ExtResource("5_x8e4v")
 max_distance = 830.0
 attenuation = 0.42044804
-panning_strength = 0.0
+panning_strength = 3.0
 parameters/looping = true
 
 [connection signal="timeout" from="StepTimer" to="." method="_on_step_timer_timeout"]
