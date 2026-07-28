@@ -6,6 +6,7 @@
 [ext_resource type="PackedScene" uid="uid://dhpnpplxsy78" path="res://entities/player.tscn" id="4_e0n7l"]
 [ext_resource type="AudioStream" uid="uid://pdws52l1wk4v" path="res://assets/sounds/test.wav" id="5_ybhky"]
 [ext_resource type="PackedScene" uid="uid://bnmp8oq81dwos" path="res://entities/audio_box.tscn" id="6_2f6ab"]
+[ext_resource type="AudioStream" uid="uid://cyaetff63i7aw" path="res://assets/sounds/intro.wav" id="6_jscph"]
 [ext_resource type="PackedScene" uid="uid://jcm4j64ndwsv" path="res://entities/teleport_enemy.tscn" id="7_tgory"]
 [ext_resource type="PackedScene" uid="uid://csh6w465i0ein" path="res://entities/stairs.tscn" id="8_kmcfi"]
 
@@ -35,6 +36,67 @@ texture = ExtResource("2_jscph")
 [sub_resource type="TileSet" id="TileSet_8c41q"]
 navigation_layer_0/layers = 1
 sources/1 = SubResource("TileSetAtlasSource_8c41q")
+
+[sub_resource type="Animation" id="Animation_uh0pl"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("../AudioStreamPlayer:playing")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [false]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("../../../CanvasLayer/Captions:text")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": ["Fatty "]
+}
+
+[sub_resource type="Animation" id="Animation_e0n7l"]
+resource_name = "caption"
+length = 9.833333
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("../AudioStreamPlayer:playing")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [true]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("../../../CanvasLayer/Captions:text")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0.73333335, 3.6666667, 4.9333334, 6.0333333, 7.266667, 8.433333),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1),
+"update": 1,
+"values": ["One of our entities has been..", "Let out,", "You can say", "Umm...", "It hears...", "Everything"]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_rasye"]
+_data = {
+&"RESET": SubResource("Animation_uh0pl"),
+&"caption": SubResource("Animation_e0n7l")
+}
 
 [sub_resource type="Animation" id="Animation_ppgk2"]
 length = 0.001
@@ -146,8 +208,15 @@ collision_mask = 43
 
 [node name="LetOut" type="Node" parent="AudioBoxes" unique_id=795291413]
 
+[node name="AnimationPlayer" type="AnimationPlayer" parent="AudioBoxes/LetOut" unique_id=150427644]
+root_node = NodePath("../AudioBox")
+libraries/ = SubResource("AnimationLibrary_rasye")
+
 [node name="AudioBox" parent="AudioBoxes/LetOut" unique_id=1858012538 instance=ExtResource("6_2f6ab")]
 position = Vector2(369, -398)
+
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="AudioBoxes/LetOut" unique_id=878063902]
+stream = ExtResource("6_jscph")
 
 [node name="Test" type="Node" parent="AudioBoxes" unique_id=1977422539]
 

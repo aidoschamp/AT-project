@@ -8,6 +8,7 @@
 [ext_resource type="PackedScene" uid="uid://jcm4j64ndwsv" path="res://entities/teleport_enemy.tscn" id="5_4axvf"]
 [ext_resource type="PackedScene" uid="uid://bnmp8oq81dwos" path="res://entities/audio_box.tscn" id="5_ukysg"]
 [ext_resource type="Script" uid="uid://bnc6ygv0qe0qh" path="res://floors/floor_2_break_wall.gd" id="6_a0hjd"]
+[ext_resource type="AudioStream" uid="uid://ddbe3bm2e5wms" path="res://assets/sounds/shotgun.wav" id="6_es8x3"]
 [ext_resource type="PackedScene" uid="uid://b3t3i1lva857q" path="res://item/item.tscn" id="6_ukysg"]
 [ext_resource type="AudioStream" uid="uid://dl58rb04hydea" path="res://assets/sounds/wall break.mp3" id="8_ukysg"]
 [ext_resource type="Script" uid="uid://bs00iytc5oxoq" path="res://floors/marker_2d.gd" id="9_jdbhc"]
@@ -36,6 +37,67 @@ texture = ExtResource("2_3bfx2")
 [sub_resource type="TileSet" id="TileSet_l0cd7"]
 navigation_layer_0/layers = 1
 sources/1 = SubResource("TileSetAtlasSource_o5kxv")
+
+[sub_resource type="Animation" id="Animation_es8x3"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("AudioStreamPlayer:playing")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [false]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("../../CanvasLayer/Captions:text")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [""]
+}
+
+[sub_resource type="Animation" id="Animation_6i0pi"]
+resource_name = "caption"
+length = 8.1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("AudioStreamPlayer:playing")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [true]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("../../CanvasLayer/Captions:text")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 2.7333333, 4.4666667, 6.4666667, 7.9666667),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1),
+"update": 1,
+"values": ["The shotgun seems to...", "uhhh...", "Spook it more than anything", "Which is terrifying", ""]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_fbf3l"]
+_data = {
+&"RESET": SubResource("Animation_es8x3"),
+&"caption": SubResource("Animation_6i0pi")
+}
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_xtmew"]
 size = Vector2(22, 258)
@@ -98,6 +160,12 @@ position = Vector2(170, -313)
 
 [node name="AudioBox" parent="AudioBoxes/Shotgun" unique_id=525344618 instance=ExtResource("5_ukysg")]
 position = Vector2(-1115, -1467)
+
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="AudioBoxes/Shotgun" unique_id=174927745]
+stream = ExtResource("6_es8x3")
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="AudioBoxes/Shotgun" unique_id=805136713]
+libraries/ = SubResource("AnimationLibrary_fbf3l")
 
 [node name="Events" type="Node" parent="." unique_id=1122547946]
 
