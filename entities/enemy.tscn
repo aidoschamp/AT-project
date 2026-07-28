@@ -1,19 +1,25 @@
 [gd_scene format=3 uid="uid://ly25mcab1jaw"]
 
 [ext_resource type="Script" uid="uid://cssn67wdm5gwl" path="res://entities/enemy.gd" id="1_7p1mj"]
-[ext_resource type="AudioStream" uid="uid://ccepmw1u6db2m" path="res://assets/sounds/temp step 1.wav" id="2_4ra3w"]
-[ext_resource type="AudioStream" uid="uid://cm8a66yb632vr" path="res://assets/sounds/temp step 2.wav" id="3_5uy6h"]
+[ext_resource type="AudioStream" uid="uid://ihm04mw7vjp4" path="res://assets/sounds/footstep 1.wav" id="2_68dbu"]
+[ext_resource type="AudioStream" uid="uid://cijm3ou0dno38" path="res://assets/sounds/footstep 2.wav" id="3_f71c5"]
+[ext_resource type="AudioStream" uid="uid://cr130602iieap" path="res://assets/sounds/footstep 3.wav" id="4_adrne"]
 [ext_resource type="AudioStream" uid="uid://die1c4jo61h7r" path="res://assets/sounds/breath.mp3" id="4_uvc0s"]
+[ext_resource type="AudioStream" uid="uid://qpckhk7l3rtg" path="res://assets/sounds/footstep 4.wav" id="5_o0e0p"]
 [ext_resource type="AudioStream" uid="uid://dhme6okxw1qwd" path="res://assets/music/Aiden 3 drums.mp3" id="5_x8e4v"]
+[ext_resource type="AudioStream" uid="uid://cl6w32e24lqca" path="res://assets/sounds/footstep 5.wav" id="6_nfp2m"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_8tegq"]
 radius = 30.0
 
 [sub_resource type="AudioStreamRandomizer" id="AudioStreamRandomizer_c4w8v"]
 playback_mode = 1
-streams_count = 2
-stream_0/stream = ExtResource("2_4ra3w")
-stream_1/stream = ExtResource("3_5uy6h")
+streams_count = 5
+stream_0/stream = ExtResource("2_68dbu")
+stream_1/stream = ExtResource("3_f71c5")
+stream_2/stream = ExtResource("4_adrne")
+stream_3/stream = ExtResource("5_o0e0p")
+stream_4/stream = ExtResource("6_nfp2m")
 
 [node name="Enemy" type="CharacterBody2D" unique_id=1489396565]
 collision_layer = 8
@@ -29,7 +35,8 @@ target_desired_distance = 5.0
 
 [node name="Steps" type="AudioStreamPlayer2D" parent="." unique_id=164146936]
 stream = SubResource("AudioStreamRandomizer_c4w8v")
-volume_db = 2.496
+volume_db = 8.32
+pitch_scale = 2.2
 max_distance = 550.0
 panning_strength = 3.0
 bus = &"Enemy"
@@ -41,7 +48,7 @@ panning_strength = 3.0
 bus = &"Enemy"
 
 [node name="StepTimer" type="Timer" parent="." unique_id=764414497]
-wait_time = 1.5
+wait_time = 1.2999999999999998
 
 [node name="AngerTimer" type="Timer" parent="." unique_id=951361143]
 wait_time = 4.0
