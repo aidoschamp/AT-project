@@ -4,7 +4,7 @@ class_name Dot
 
 var angle: Vector2
 var velocity: Vector2
-var speed := 400.0
+var speed := 700.0
 var active := true
 var colour: Color
 var dot_type: Enums.Colours
