@@ -42,7 +42,7 @@ length = 0.001
 tracks/0/type = "value"
 tracks/0/imported = false
 tracks/0/enabled = true
-tracks/0/path = NodePath("../AudioStreamPlayer:playing")
+tracks/0/path = NodePath("AudioStreamPlayer:playing")
 tracks/0/interp = 1
 tracks/0/loop_wrap = true
 tracks/0/keys = {
@@ -54,14 +54,14 @@ tracks/0/keys = {
 tracks/1/type = "value"
 tracks/1/imported = false
 tracks/1/enabled = true
-tracks/1/path = NodePath("../../../CanvasLayer/Captions:text")
+tracks/1/path = NodePath("../../CanvasLayer/Captions:text")
 tracks/1/interp = 1
 tracks/1/loop_wrap = true
 tracks/1/keys = {
 "times": PackedFloat32Array(0),
 "transitions": PackedFloat32Array(1),
 "update": 1,
-"values": ["Fatty "]
+"values": ["Everything"]
 }
 
 [sub_resource type="Animation" id="Animation_e0n7l"]
@@ -70,26 +70,26 @@ length = 9.833333
 tracks/0/type = "value"
 tracks/0/imported = false
 tracks/0/enabled = true
-tracks/0/path = NodePath("../AudioStreamPlayer:playing")
+tracks/0/path = NodePath("../../CanvasLayer/Captions:text")
 tracks/0/interp = 1
 tracks/0/loop_wrap = true
 tracks/0/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
+"times": PackedFloat32Array(0, 2.9333334, 4.2, 5.3, 6.533334, 7.7, 9.433333),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1, 1),
 "update": 1,
-"values": [true]
+"values": ["One of our entities has been..", "Let out,", "You can say", "Umm...", "It hears...", "Everything", ""]
 }
 tracks/1/type = "value"
 tracks/1/imported = false
 tracks/1/enabled = true
-tracks/1/path = NodePath("../../../CanvasLayer/Captions:text")
+tracks/1/path = NodePath("AudioStreamPlayer:playing")
 tracks/1/interp = 1
 tracks/1/loop_wrap = true
 tracks/1/keys = {
-"times": PackedFloat32Array(0.73333335, 3.6666667, 4.9333334, 6.0333333, 7.266667, 8.433333),
-"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1),
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
 "update": 1,
-"values": ["One of our entities has been..", "Let out,", "You can say", "Umm...", "It hears...", "Everything"]
+"values": [true]
 }
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_rasye"]
@@ -208,15 +208,15 @@ collision_mask = 43
 
 [node name="LetOut" type="Node" parent="AudioBoxes" unique_id=795291413]
 
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="AudioBoxes/LetOut" unique_id=878063902]
+stream = ExtResource("6_jscph")
+bus = &"AudioBox"
+
 [node name="AnimationPlayer" type="AnimationPlayer" parent="AudioBoxes/LetOut" unique_id=150427644]
-root_node = NodePath("../AudioBox")
 libraries/ = SubResource("AnimationLibrary_rasye")
 
 [node name="AudioBox" parent="AudioBoxes/LetOut" unique_id=1858012538 instance=ExtResource("6_2f6ab")]
-position = Vector2(369, -398)
-
-[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="AudioBoxes/LetOut" unique_id=878063902]
-stream = ExtResource("6_jscph")
+position = Vector2(498, -394)
 
 [node name="Test" type="Node" parent="AudioBoxes" unique_id=1977422539]
 
@@ -228,7 +228,7 @@ bus = &"AudioBox"
 libraries/ = SubResource("AnimationLibrary_ppgk2")
 
 [node name="AudioBox" parent="AudioBoxes/Test" unique_id=2127121289 instance=ExtResource("6_2f6ab")]
-position = Vector2(276, -642)
+position = Vector2(585, -626)
 
 [node name="Events" type="Node" parent="." unique_id=648401433]
 
