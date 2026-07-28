@@ -55,6 +55,7 @@ text = "Quit"
 script = ExtResource("2_1x3cv")
 
 [node name="DeleteSave" type="Button" parent="Buttons" unique_id=1619433279]
+visible = false
 layout_mode = 1
 anchors_preset = 8
 anchor_left = 0.5
