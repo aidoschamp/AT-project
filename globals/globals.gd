@@ -10,6 +10,7 @@ var settings: Dictionary = {
 		Enums.Audio_Buses.MASTER: 1,
 		Enums.Audio_Buses.ENEMY: 1,
 		Enums.Audio_Buses.AUDIO_BOX: 1,
+		Enums.Audio_Buses.MUSIC: 1,
 	},
 	Enums.Settings.FULLSCREEN: true,
 }

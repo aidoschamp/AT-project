@@ -16,4 +16,5 @@ stream = ExtResource("3_vn7ss")
 volume_db = -20.641
 pitch_scale = 0.6
 autoplay = true
+bus = &"Music"
 parameters/looping = true

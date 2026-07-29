@@ -21,12 +21,11 @@ anchor_top = 0.5
 anchor_right = 0.5
 anchor_bottom = 0.5
 offset_left = -200.0
-offset_top = -38.0
+offset_top = -46.0
 offset_right = 200.0
 offset_bottom = 212.0
 grow_horizontal = 2
 grow_vertical = 2
-theme_override_constants/separation = 17
 
 [node name="MasterContainer" type="VBoxContainer" parent="Options" unique_id=1056498749]
 layout_mode = 2
@@ -36,6 +35,21 @@ layout_mode = 2
 text = "Main"
 
 [node name="Master" type="HSlider" parent="Options/MasterContainer" unique_id=1996047518]
+layout_mode = 2
+size_flags_vertical = 2
+max_value = 1.0
+step = 0.01
+value = 1.0
+script = ExtResource("2_vddeu")
+
+[node name="MusicContainer" type="VBoxContainer" parent="Options" unique_id=60495545]
+layout_mode = 2
+
+[node name="MusicLabel" type="Label" parent="Options/MusicContainer" unique_id=1769186190]
+layout_mode = 2
+text = "Music"
+
+[node name="Music" type="HSlider" parent="Options/MusicContainer" unique_id=302826313]
 layout_mode = 2
 size_flags_vertical = 2
 max_value = 1.0
@@ -82,6 +96,7 @@ text = "Back"
 script = ExtResource("3_y6orj")
 
 [connection signal="value_changed" from="Options/MasterContainer/Master" to="Options/MasterContainer/Master" method="_on_value_changed"]
+[connection signal="value_changed" from="Options/MusicContainer/Music" to="Options/MusicContainer/Music" method="_on_value_changed"]
 [connection signal="value_changed" from="Options/EnemyContainer/Enemy" to="Options/EnemyContainer/Enemy" method="_on_value_changed"]
 [connection signal="value_changed" from="Options/AudioBoxContainer/AudioBox" to="Options/AudioBoxContainer/AudioBox" method="_on_value_changed"]
 [connection signal="pressed" from="Options/Back" to="." method="_on_back_pressed"]

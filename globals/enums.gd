@@ -38,6 +38,7 @@ enum Audio_Buses {
 	MASTER,
 	ENEMY,
 	AUDIO_BOX,
+	MUSIC,
 }
 
 
