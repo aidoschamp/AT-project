@@ -20,7 +20,8 @@ wait_time = 2.0
 autostart = true
 
 [node name="DespawnTimer" type="Timer" parent="." unique_id=584546467]
-wait_time = 10.0
+wait_time = 8.0
+autostart = true
 
 [connection signal="body_entered" from="." to="." method="_on_body_entered"]
 [connection signal="timeout" from="ShootTimer" to="." method="_on_shoot_timer_timeout"]
