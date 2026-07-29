@@ -53,5 +53,6 @@ const ITEM_NAMES := {
 const FLOOR_SCENES := {
 	Enums.Floor.INTRO: "res://floors/Intro.tscn",
 	Enums.Floor.FLOOR1: "res://floors/floor_1.tscn",
-	Enums.Floor.FLOOR2: "res://floors/floor_2.tscn"
+	Enums.Floor.FLOOR2: "res://floors/floor_2.tscn",
+	Enums.Floor.ENDSCREEN: "res://end_screen.tscn",
 }

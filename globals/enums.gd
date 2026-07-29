@@ -24,6 +24,7 @@ enum Floor {
 	INTRO, 
 	FLOOR1,
 	FLOOR2,
+	ENDSCREEN,
 }
 
 
