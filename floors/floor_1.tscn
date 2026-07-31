@@ -97,7 +97,7 @@ tracks/1/keys = {
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_trgqr"]
 _data = {
 &"RESET": SubResource("Animation_fbf3l"),
-&"captions": SubResource("Animation_pdpc8")
+&"caption": SubResource("Animation_pdpc8")
 }
 
 [sub_resource type="Animation" id="Animation_es8x3"]
@@ -165,7 +165,7 @@ _data = {
 size = Vector2(22, 258)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_vao7y"]
-size = Vector2(16, 112)
+size = Vector2(53, 112)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_d2e78"]
 size = Vector2(111, 15)
@@ -203,11 +203,6 @@ tile_set = SubResource("TileSet_l0cd7")
 [node name="Enemy" parent="." unique_id=1489396565 instance=ExtResource("3_a0hjd")]
 position = Vector2(570, -151)
 collision_mask = 9
-
-[node name="player" parent="." unique_id=901184842 instance=ExtResource("4_jdbhc")]
-z_index = 5
-position = Vector2(-9, 136)
-collision_mask = 43
 
 [node name="Lidars" type="Node" parent="." unique_id=2015006892]
 
@@ -263,7 +258,7 @@ collision_mask = 12
 script = ExtResource("6_a0hjd")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Events/BreakWall" unique_id=1466303869]
-position = Vector2(-1001, -1480)
+position = Vector2(-999.5, -1480)
 shape = SubResource("RectangleShape2D_vao7y")
 
 [node name="AudioStreamPlayer2D" type="AudioStreamPlayer2D" parent="Events/BreakWall" unique_id=566521554]
@@ -303,10 +298,10 @@ position = Vector2(1508, -537)
 position = Vector2(2255, -1049)
 
 [node name="MinePickup4" parent="Items" unique_id=1047360883 instance=ExtResource("6_ukysg")]
-position = Vector2(1050, -1278)
+position = Vector2(1656, -977)
 
 [node name="MinePickup5" parent="Items" unique_id=1568075144 instance=ExtResource("6_ukysg")]
-position = Vector2(1648, -1097)
+position = Vector2(1656, -1099)
 
 [node name="ShotgunPickup" parent="Items" unique_id=692118811 instance=ExtResource("6_ukysg")]
 position = Vector2(-488, -1488)
@@ -317,5 +312,10 @@ item = 1
 [node name="Marker2D" type="Marker2D" parent="ShotMoveLocations" unique_id=388299772]
 position = Vector2(-2199, -1479)
 script = ExtResource("9_jdbhc")
+
+[node name="player" parent="." unique_id=901184842 instance=ExtResource("4_jdbhc")]
+z_index = 5
+position = Vector2(-9, 136)
+collision_mask = 43
 
 [connection signal="body_entered" from="Events/BreakWall" to="Events/BreakWall" method="_on_body_entered"]
