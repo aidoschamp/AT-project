@@ -235,11 +235,6 @@ stream = ExtResource("6_es8x3")
 [node name="AnimationPlayer" type="AnimationPlayer" parent="AudioBoxes/Shotgun" unique_id=805136713]
 libraries/ = SubResource("AnimationLibrary_fbf3l")
 
-[node name="Left" type="Node" parent="AudioBoxes" unique_id=750402098]
-
-[node name="AudioBox" parent="AudioBoxes/Left" unique_id=1867210032 instance=ExtResource("5_ukysg")]
-position = Vector2(2259, -1507)
-
 [node name="Events" type="Node" parent="." unique_id=1122547946]
 
 [node name="SpawnEnemy" parent="Events" unique_id=279629428 instance=ExtResource("5_4axvf")]
