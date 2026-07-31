@@ -9,7 +9,7 @@ func _on_body_entered(_body: Node2D) -> void:
 	wall_break_sound.play()
 
 	for cell in range(7):
-		walls.erase_cell(Vector2i(-63, -95 + cell))
+		walls.erase_cell(Vector2i(-63, -96 + cell))
 
 	for area in get_overlapping_areas():
 		if area is Dot:

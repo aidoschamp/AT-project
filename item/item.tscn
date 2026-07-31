@@ -5,6 +5,9 @@
 [sub_resource type="CircleShape2D" id="CircleShape2D_2r41h"]
 radius = 25.079872
 
+[sub_resource type="CircleShape2D" id="CircleShape2D_4ojsc"]
+radius = 40.0
+
 [node name="Item" type="Area2D" unique_id=1858012538]
 collision_layer = 16
 collision_mask = 5
@@ -28,6 +31,10 @@ offset_right = 49.5
 grow_horizontal = 2
 grow_vertical = 0
 horizontal_alignment = 1
+
+[node name="DotDeleter" type="CollisionShape2D" parent="." unique_id=2093121554]
+shape = SubResource("CircleShape2D_4ojsc")
+disabled = true
 
 [connection signal="body_entered" from="." to="." method="_on_body_entered"]
 [connection signal="body_exited" from="." to="." method="_on_body_exited"]

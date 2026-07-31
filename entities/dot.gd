@@ -39,6 +39,8 @@ func _on_timer_timeout() -> void:
 # have to use this for the audiobox since they're an area not a body
 func _on_area_entered(area: Area2D) -> void:
 	if active:
+		active = false
+		velocity *= 0
 		if area is AudioBox:
 			colour = Globals.colours[Enums.Colours.AUDIO_BOX]
 			despawn_timer.stop()
@@ -51,8 +53,6 @@ func _on_area_entered(area: Area2D) -> void:
 			colour = Globals.colours[Enums.Colours.ITEM]
 			despawn_timer.stop()
 			dot_type = Enums.Colours.ITEM
-		active = false
-		velocity *= 0
 		queue_redraw()
 
 
