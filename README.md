@@ -6,5 +6,5 @@ Download the engine and press import in the top left, and import the project fil
 
 [Link to download engine](https://godotengine.org/download/windows/)
 
-# Just to browse scripts
+# Just to browse scripts:
 Find .gd files in VSC or other IDE, which are godots file extension for their scripts, all .gd files will be with their respective scene (.tscn) files
