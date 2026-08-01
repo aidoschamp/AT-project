@@ -1,5 +1,5 @@
 # Playing the game:
-To properly play the game download the .exe and .pck files and put them in the same folder, and launch the .exe
+To properly play the game download AT project.zip in the latest release, unzip and launch the .exe
 
 # Using the engine:
 Download the engine and press import in the top left, and import the project files
